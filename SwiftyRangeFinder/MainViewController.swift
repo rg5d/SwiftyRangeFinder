@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  MainViewController.swift
 //  SwiftyRangeFinder
 //
 //  Created by rg on 10/1/15.
@@ -8,11 +8,16 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class MainViewController: UIViewController {
+
+  @IBOutlet weak var headerLabel: UILabel!
 
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
+
+    headerLabel.text = "Hello MainViewController"
+
   }
 
   override func didReceiveMemoryWarning() {
@@ -22,4 +27,3 @@ class FirstViewController: UIViewController {
 
 
 }
-
