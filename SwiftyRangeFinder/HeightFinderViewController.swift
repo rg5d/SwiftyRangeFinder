@@ -16,7 +16,7 @@ class HeightFinderViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
 
-    headerLabel.text = "hello HeightFinderViewController"
+//    headerLabel.text = "hello HeightFinderViewController"
 
 
   }

@@ -12,11 +12,14 @@ class FlipsideViewController: UIViewController {
 
   @IBOutlet weak var headerLabel: UILabel!
 
+  @IBOutlet weak var setupUINavigationItem: UINavigationItem!
+
+
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
 
-    headerLabel.text = "Hello FlipsideViewController"
+//    headerLabel.text = "Hello FlipsideViewController"
   }
 
   override func didReceiveMemoryWarning() {

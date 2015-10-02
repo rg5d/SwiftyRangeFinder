@@ -16,7 +16,7 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
 
-    headerLabel.text = "Hello MainViewController"
+//    headerLabel.text = "Hello MainViewController"
 
   }
 
