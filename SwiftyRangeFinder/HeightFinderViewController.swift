@@ -10,6 +10,7 @@ import UIKit
 
 class HeightFinderViewController: UIViewController {
 
+  @IBOutlet weak var helpView: UIView!
 
   @IBOutlet weak var headerLabel: UILabel!
   override func viewDidLoad() {
@@ -17,6 +18,8 @@ class HeightFinderViewController: UIViewController {
     // Do any additional setup after loading the view, typically from a nib.
 
     preferredInterfaceOrientationForPresentation().isLandscape
+
+    helpView.hidden = true
 
 
 

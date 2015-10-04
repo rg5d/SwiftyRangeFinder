@@ -10,6 +10,8 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+  @IBOutlet weak var helpView: UIView!
+
   @IBOutlet weak var myAssistantLabel: UILabel!
 
   @IBOutlet weak var distanceObjectLabel: UILabel!
@@ -17,6 +19,8 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
+
+    helpView.hidden = true
 
     // Sets up labels & initial values
     var heightUnits = "foot"

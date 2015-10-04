@@ -108,6 +108,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="distanceObjectLabel" destination="dYC-Yq-FGq" id="Vgr-5M-CMK"/>
+                        <outlet property="helpView" destination="B3U-TC-pEc" id="29r-gb-EbW"/>
                         <outlet property="myAssistantLabel" destination="TRN-Lw-Bh4" id="auP-lr-JzP"/>
                     </connections>
                 </viewController>
@@ -245,6 +246,9 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="helpView" destination="0Ce-4f-OTw" id="OWX-n8-mvM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -364,63 +368,6 @@
                                             <segment title="Mile"/>
                                         </segments>
                                     </segmentedControl>
-                                    <view alpha="0.66699999570846602" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PBH-2M-e9V" userLabel="Help View">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="440"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="085-xn-iYf">
-                                                <rect key="frame" x="285" y="16" width="22" height="22"/>
-                                                <animations/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <state key="normal">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Select objects with heights" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFk-eV-m0x">
-                                                <rect key="frame" x="15" y="40" width="280" height="40"/>
-                                                <animations/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Set height of objects" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UpD-3e-Z4s">
-                                                <rect key="frame" x="15" y="90" width="280" height="40"/>
-                                                <animations/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Select your own units" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0V-0X-i4F">
-                                                <rect key="frame" x="15" y="140" width="280" height="40"/>
-                                                <animations/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Add to &amp; edit the object list" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXf-nE-BDj">
-                                                <rect key="frame" x="15" y="190" width="280" height="60"/>
-                                                <animations/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Press Done" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FoG-AB-bXx">
-                                                <rect key="frame" x="15" y="260" width="280" height="40"/>
-                                                <animations/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Easy Peasey !!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9y-Dr-VFN">
-                                                <rect key="frame" x="15" y="305" width="280" height="60"/>
-                                                <animations/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="26"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                        </subviews>
-                                        <animations/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
                                 </subviews>
                                 <animations/>
                                 <userDefinedRuntimeAttributes>
@@ -429,6 +376,63 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
+                            <view alpha="0.66699999570846602" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PBH-2M-e9V" userLabel="Help View">
+                                <rect key="frame" x="0.0" y="130" width="320" height="440"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="085-xn-iYf">
+                                        <rect key="frame" x="285" y="16" width="22" height="22"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Select objects with heights" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFk-eV-m0x">
+                                        <rect key="frame" x="15" y="40" width="280" height="40"/>
+                                        <animations/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Set height of objects" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UpD-3e-Z4s">
+                                        <rect key="frame" x="15" y="90" width="280" height="40"/>
+                                        <animations/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Select your own units" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0V-0X-i4F">
+                                        <rect key="frame" x="15" y="140" width="280" height="40"/>
+                                        <animations/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Add to &amp; edit the object list" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXf-nE-BDj">
+                                        <rect key="frame" x="15" y="190" width="280" height="60"/>
+                                        <animations/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Press Done" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FoG-AB-bXx">
+                                        <rect key="frame" x="15" y="260" width="280" height="40"/>
+                                        <animations/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Easy Peasey !!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9y-Dr-VFN">
+                                        <rect key="frame" x="15" y="305" width="280" height="60"/>
+                                        <animations/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="26"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -440,6 +444,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="700"/>
                     <connections>
+                        <outlet property="helpView" destination="PBH-2M-e9V" id="VzA-Jz-mnF"/>
                         <outlet property="scrollView" destination="i9f-1J-k4c" id="B6P-Qf-2GQ"/>
                     </connections>
                 </viewController>

@@ -10,6 +10,7 @@ import UIKit
 
 class FlipsideViewController: UIViewController {
 
+  @IBOutlet weak var helpView: UIView!
   @IBOutlet weak var headerLabel: UILabel!
 
   @IBOutlet weak var setupUINavigationItem: UINavigationItem!
@@ -21,6 +22,7 @@ class FlipsideViewController: UIViewController {
     // Do any additional setup after loading the view, typically from a nib.
 
     print(scrollView.contentSize)
+    helpView.hidden = true
 
   }
 
