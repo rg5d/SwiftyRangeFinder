@@ -10,7 +10,6 @@
 		B47F9F5D1BBE5D1D00BD3275 /* HeightFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F9F5C1BBE5D1D00BD3275 /* HeightFinderViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B47F9F5F1BBE5D9C00BD3275 /* FlipsideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F9F5E1BBE5D9C00BD3275 /* FlipsideViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B4BCEA581BBE57CC008A529C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BCEA571BBE57CC008A529C /* AppDelegate.swift */; };
-		B4BCEA5C1BBE57CC008A529C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BCEA5B1BBE57CC008A529C /* SecondViewController.swift */; };
 		B4BCEA5F1BBE57CC008A529C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4BCEA5D1BBE57CC008A529C /* Main.storyboard */; };
 		B4BCEA611BBE57CD008A529C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4BCEA601BBE57CD008A529C /* Assets.xcassets */; };
 		B4BCEA641BBE57CD008A529C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4BCEA621BBE57CD008A529C /* LaunchScreen.storyboard */; };
@@ -43,7 +42,6 @@
 		B47F9F5E1BBE5D9C00BD3275 /* FlipsideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlipsideViewController.swift; sourceTree = "<group>"; };
 		B4BCEA541BBE57CC008A529C /* SwiftyRangeFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyRangeFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4BCEA571BBE57CC008A529C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B4BCEA5B1BBE57CC008A529C /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		B4BCEA5E1BBE57CC008A529C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B4BCEA601BBE57CD008A529C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4BCEA631BBE57CD008A529C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				B4BCEA571BBE57CC008A529C /* AppDelegate.swift */,
-				B4BCEA5B1BBE57CC008A529C /* SecondViewController.swift */,
 				B4BCEA5D1BBE57CC008A529C /* Main.storyboard */,
 				B4BCEA601BBE57CD008A529C /* Assets.xcassets */,
 				B4BCEA621BBE57CD008A529C /* LaunchScreen.storyboard */,
@@ -243,7 +240,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4BCEA5C1BBE57CC008A529C /* SecondViewController.swift in Sources */,
 				B4BCEA581BBE57CC008A529C /* AppDelegate.swift in Sources */,
 				B4BCEA9A1BBE5AFB008A529C /* MainViewController.swift in Sources */,
 				B47F9F5F1BBE5D9C00BD3275 /* FlipsideViewController.swift in Sources */,

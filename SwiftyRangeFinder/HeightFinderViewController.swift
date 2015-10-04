@@ -16,7 +16,9 @@ class HeightFinderViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
 
-//    headerLabel.text = "hello HeightFinderViewController"
+    preferredInterfaceOrientationForPresentation().isLandscape
+
+
 
 
   }
@@ -24,6 +26,10 @@ class HeightFinderViewController: UIViewController {
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
+  }
+
+  override func shouldAutorotate() -> Bool {
+    return false;
   }
 
 

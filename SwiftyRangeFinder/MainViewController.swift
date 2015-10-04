@@ -10,13 +10,27 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-  @IBOutlet weak var headerLabel: UILabel!
+  @IBOutlet weak var myAssistantLabel: UILabel!
+
+  @IBOutlet weak var distanceObjectLabel: UILabel!
 
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
 
-//    headerLabel.text = "Hello MainViewController"
+    // Sets up labels & initial values
+    var heightUnits = "foot"
+    var height = "6"
+    var objectName = "Golf Flag"
+    var distanceUnits = "yard"
+    heightUnits = "foot"
+    height = "6"
+    objectName = "Golf Flag"
+    distanceUnits = "yard"
+
+    distanceObjectLabel.text = String(format: "Distant object is a %@ %@ high %@", height, heightUnits, objectName)
+
+    myAssistantLabel.text = "Tap to open RangeFinder"
 
   }
 

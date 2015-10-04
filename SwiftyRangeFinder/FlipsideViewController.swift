@@ -14,12 +14,14 @@ class FlipsideViewController: UIViewController {
 
   @IBOutlet weak var setupUINavigationItem: UINavigationItem!
 
+  @IBOutlet weak var scrollView: UIScrollView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
 
-//    headerLabel.text = "Hello FlipsideViewController"
+    print(scrollView.contentSize)
+
   }
 
   override func didReceiveMemoryWarning() {
