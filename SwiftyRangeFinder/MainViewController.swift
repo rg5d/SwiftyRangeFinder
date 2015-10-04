@@ -43,5 +43,12 @@ class MainViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
 
+  @IBAction func showHelpview(sender: AnyObject) {
+      helpView.hidden = false
+  }
+
+  @IBAction func hideHelpView(sender: AnyObject) {
+    helpView.hidden = true
+  }
 
 }

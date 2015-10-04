@@ -21,7 +21,6 @@ class FlipsideViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
 
-    print(scrollView.contentSize)
     helpView.hidden = true
 
   }
@@ -31,5 +30,12 @@ class FlipsideViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
 
+  @IBAction func showHelpView(sender: AnyObject) {
+    helpView.hidden = false
+  }
+
+  @IBAction func hideHelpView(sender: AnyObject) {
+    helpView.hidden = true
+  }
 
 }

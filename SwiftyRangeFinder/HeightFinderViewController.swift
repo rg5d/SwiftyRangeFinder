@@ -35,5 +35,14 @@ class HeightFinderViewController: UIViewController {
     return false;
   }
 
+  @IBAction func showHelpview(sender: AnyObject) {
+    helpView.hidden = false
+  }
+
+
+  @IBAction func hideHelpView(sender: AnyObject) {
+    helpView.hidden = true
+  }
+
 
 }

@@ -19,6 +19,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gts-hq-xAx">
                                 <rect key="frame" x="282" y="75" width="22" height="22"/>
                                 <animations/>
+                                <connections>
+                                    <action selector="showHelpview:" destination="9pv-A4-QxB" eventType="touchUpInside" id="zmR-uA-5FL"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Assistant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRN-Lw-Bh4">
                                 <rect key="frame" x="20" y="74" width="244" height="21"/>
@@ -59,6 +62,9 @@
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="hideHelpView:" destination="9pv-A4-QxB" eventType="touchUpInside" id="WUB-zl-n2t"/>
+                                        </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Tap to open camera" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ayy-FP-B1b">
                                         <rect key="frame" x="15" y="82" width="280" height="60"/>
@@ -132,13 +138,6 @@
                                 <rect key="frame" x="27" y="79" width="63" height="173"/>
                                 <animations/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Height" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5i-lZ-sHp">
-                                <rect key="frame" x="117" y="79" width="88" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="degree" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ac-Gk-I3K">
                                 <rect key="frame" x="303" y="108" width="133" height="47"/>
                                 <animations/>
@@ -169,8 +168,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjC-8A-ZXS">
+                                <rect key="frame" x="438" y="52" width="22" height="22"/>
+                                <animations/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showHelpview:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="9K0-tm-lRw"/>
+                                </connections>
+                            </button>
                             <view alpha="0.66700000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Ce-4f-OTw" userLabel="Help View">
-                                <rect key="frame" x="0.0" y="64" width="480" height="230"/>
+                                <rect key="frame" x="0.0" y="46" width="480" height="230"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VwP-zQ-0rU">
                                         <rect key="frame" x="448" y="16" width="22" height="22"/>
@@ -179,6 +188,9 @@
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="hideHelpView:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="IbA-Zd-9Hk"/>
+                                        </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Tap angle to activate" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0D-8T-aqk">
                                         <rect key="frame" x="10" y="0.0" width="420" height="35"/>
@@ -229,6 +241,13 @@
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="24"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Height" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5i-lZ-sHp">
+                                        <rect key="frame" x="145" y="22" width="88" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -282,6 +301,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Mu-0V-Sxm">
                                         <rect key="frame" x="282" y="10" width="22" height="22"/>
                                         <animations/>
+                                        <connections>
+                                            <action selector="showHelpView:" destination="E5i-Oe-umS" eventType="touchUpInside" id="ce4-cC-Lu2"/>
+                                        </connections>
                                     </button>
                                     <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BNL-Av-X99" userLabel="Object Picker">
                                         <rect key="frame" x="8" y="77" width="135" height="218"/>
@@ -377,7 +399,7 @@
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
                             <view alpha="0.66699999570846602" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PBH-2M-e9V" userLabel="Help View">
-                                <rect key="frame" x="0.0" y="130" width="320" height="440"/>
+                                <rect key="frame" x="0.0" y="65" width="320" height="440"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="085-xn-iYf">
                                         <rect key="frame" x="285" y="16" width="22" height="22"/>
@@ -386,6 +408,9 @@
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="hideHelpView:" destination="E5i-Oe-umS" eventType="touchUpInside" id="QAL-3w-eiE"/>
+                                        </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Select objects with heights" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFk-eV-m0x">
                                         <rect key="frame" x="15" y="40" width="280" height="40"/>
