@@ -14,7 +14,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
   @IBOutlet weak var cameraView: UIImageView!
 
@@ -25,6 +25,8 @@ class MainViewController: UIViewController {
   @IBOutlet weak var myAssistantLabel: UILabel!
 
   var reticleZoomSlider: UISlider!
+  var reticleView: UIImageView!
+
 
   @IBOutlet weak var cameraButtonButton: UIImageView!
 
@@ -51,7 +53,7 @@ class MainViewController: UIViewController {
     // Build a view to overlay over the camera view including the zoom factor
     let frame = CGRectMake(80.0, 150.0, 160.0, 120.0)
 
-    let reticleView: UIImageView = UIImageView()
+    reticleView = UIImageView()
     reticleView.frame = frame
     reticleView.image = UIImage(named: "Reticle(2).png")
     reticleView.userInteractionEnabled = true
@@ -69,8 +71,6 @@ class MainViewController: UIViewController {
     distanceUnits = "yard"
 
     distanceObjectLabel.text = String(format: "Distant object is a %@ %@ high %@", height, heightUnits, objectName)
-
-//    myAssistantLabel.text = "Tap to open RangeFinder"
 
   }
 
@@ -90,17 +90,16 @@ class MainViewController: UIViewController {
   @IBAction func camera(sender: AnyObject) {
     print("Trying to get the camera controls to show")
 
-
     // Sets self to be the ImagePickerController delegate
-//    imagePickerController = [[UIImagePickerController alloc] init];
-//    imagePickerController.delegate = self;
-//
-//    // Configures the camera & presents the modal camera view
-//    imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-//    imagePickerController.allowsEditing = YES;
-//    imagePickerController.showsCameraControls = YES;
-//    imagePickerController.cameraOverlayView = reticleView;
-//    [self presentModalViewController:imagePickerController animated:YES];
+    let imagePickerController: UIImagePickerController = UIImagePickerController()
+    imagePickerController.delegate = self;
+
+    // Configures the camera & presents the modal camera view
+    imagePickerController.sourceType = UIImagePickerControllerSourceType.Camera
+    imagePickerController.allowsEditing = true
+    imagePickerController.showsCameraControls = true
+    imagePickerController.cameraOverlayView = reticleView
+    presentViewController(imagePickerController, animated: true, completion: nil)
 
   }
 
