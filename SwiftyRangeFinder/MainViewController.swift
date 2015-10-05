@@ -65,10 +65,6 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     var height = "6"
     var objectName = "Golf Flag"
     var distanceUnits = "yard"
-    heightUnits = "foot"
-    height = "6"
-    objectName = "Golf Flag"
-    distanceUnits = "yard"
 
     distanceObjectLabel.text = String(format: "Distant object is a %@ %@ high %@", height, heightUnits, objectName)
 
@@ -100,7 +96,88 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     imagePickerController.showsCameraControls = true
     imagePickerController.cameraOverlayView = reticleView
     presentViewController(imagePickerController, animated: true, completion: nil)
+  }
+
+// MARK: - UIImagePickerControllerDelegate Methods
+
+// Objective-C
+
+//  - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+//
+//  // Displays the INITIAL zoom factor by getting cropped rectangle dimensions
+//  NSValue *imageRectangle = [info objectForKey:UIImagePickerControllerCropRect];
+//  CGRect rectangleValue = [imageRectangle CGRectValue];
+//  CGFloat zoomFactor = (1937.0 / rectangleValue.size.height);
+//  NSLog(@"CropRect ZoomFactor is in %2.3f", zoomFactor);
+//
+//  // Displays the FINAL zoom factor by getting {Exif}dictionary's DigitalZoomRatio
+//  NSMutableDictionary *metadata = [[NSMutableDictionary alloc] initWithDictionary:[info objectForKey:UIImagePickerControllerMediaMetadata]];
+//  NSString *pictureZoomFactor = [[metadata objectForKey:@"{Exif}"] objectForKey:@"DigitalZoomRatio"];
+//  NSLog(@"DigitalZoomRatio is in %@", pictureZoomFactor);
+//
+//  // Converts both Zooms to number & multiplies together for TOTAL zoom factor
+//  secondZoomFactor = [pictureZoomFactor floatValue];
+//  // keeps zoom factor from being zero
+//  if (!secondZoomFactor) {
+//  // NSLog (@"No zoom factor");
+//  secondZoomFactor = 1.0;
+//  }
+//  totalZoomFactor = zoomFactor *secondZoomFactor;
+//  NSString *finalZoomFactor = [[NSString alloc] initWithFormat:@"Total zoom = %3.1f", totalZoomFactor];
+//  self.myAssistantLabel.text = finalZoomFactor;
+//  // NSLog(@"zoom are %2.3f, %2.3f, %2.3f", zoomFactor, secondZoomFactor, totalZoomFactor);
+//
+//  // Calculates actual distance in selected units
+//  float distance = totalZoomFactor * flagHeight * FUTZ_FACTOR;
+//  self.distanceLabel.text = [NSString stringWithFormat:@"%3.0f %@ away", distance, distanceUnits];
+//
+//  // gets rid of the image controller modal view
+//  [self dismissModalViewControllerAnimated:YES];
+//  }
+
+//  - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+//  NSLog(@"imagePickerControllerDidCancel method");
+//  [self dismissModalViewControllerAnimated:YES];
+//
+//  }
+
+
+  func imagePickerController(
+    picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
+  {
+
+    // Displays the INITIAL zoom factor by getting cropped rectangle dimensions
+
+    //  I Am stuck right here....I don't know the swift equivalent syntax
+    //  trying to translate NSValue *imageRectangle = [info objectForKey:UIImagePickerControllerCropRect]
+
+    //  let imageRectangle: UIImage = info[UIImagePickerControllerCropRect]
+
+    //  NSValue *imageRectangle = [info objectForKey:UIImagePickerControllerCropRect];
+
+    //  CGRect rectangleValue = [imageRectangle CGRectValue];
+
+    //  CGFloat zoomFactor = (1937.0 / rectangleValue.size.height);
+
+    //  NSLog(@"CropRect ZoomFactor is in %2.3f", zoomFactor);
+
+    print("CropRect ZoomFactor is in zoomFactor")
+
+    // Displays the FINAL zoom factor by getting {Exif}dictionary's DigitalZoomRatio
+
+    // Converts both Zooms to number & multiplies together for TOTAL zoom factor
+
+    // Calculates actual distance in selected units
+
+    // gets rid of the image controller modal view
+    dismissViewControllerAnimated(true, completion: nil)
 
   }
+
+  func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+    print("imagePickerControllerDidCancel method \n")
+    dismissViewControllerAnimated(true, completion: nil)
+  }
+
 
 }
