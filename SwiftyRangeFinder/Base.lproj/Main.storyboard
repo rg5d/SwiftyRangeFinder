@@ -478,12 +478,18 @@
                     </view>
                     <navigationItem key="navigationItem" title="Setup" id="lVc-i9-RFo">
                         <barButtonItem key="leftBarButtonItem" title="Test" id="ahG-sj-ORG"/>
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="zj9-jc-Ftx"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="zj9-jc-Ftx">
+                            <connections>
+                                <action selector="editButton:" destination="E5i-Oe-umS" id="96y-fF-uso"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="700"/>
                     <connections>
+                        <outlet property="heightPicker" destination="W2H-yX-UEp" id="BtZ-mH-LLK"/>
                         <outlet property="helpView" destination="PBH-2M-e9V" id="VzA-Jz-mnF"/>
+                        <outlet property="objectPicker" destination="BNL-Av-X99" id="UhB-LV-ltK"/>
                         <outlet property="scrollView" destination="i9f-1J-k4c" id="B6P-Qf-2GQ"/>
                     </connections>
                 </viewController>
