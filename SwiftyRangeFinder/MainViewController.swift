@@ -98,8 +98,6 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     presentViewController(imagePickerController, animated: true, completion: nil)
   }
 
-// MARK: - UIImagePickerControllerDelegate Methods
-
 // Objective-C
 
 //  - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
@@ -141,29 +139,35 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 //
 //  }
 
+  // MARK: - UIImagePickerControllerDelegate Methods
 
-  func imagePickerController(
-    picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
+
+  func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
   {
-
     // Displays the INITIAL zoom factor by getting cropped rectangle dimensions
 
-    //  I Am stuck right here....I don't know the swift equivalent syntax
-    //  trying to translate NSValue *imageRectangle = [info objectForKey:UIImagePickerControllerCropRect]
+    let imageRectangle = info[UIImagePickerControllerCropRect] as! NSValue
+    print(imageRectangle) // NSRect: {{0, 130}, {2448, 2449}}
 
-    //  let imageRectangle: UIImage = info[UIImagePickerControllerCropRect]
+    let rectangleValue: CGRect = imageRectangle.CGRectValue()
+    print(rectangleValue.size.height) // 2449.0
 
-    //  NSValue *imageRectangle = [info objectForKey:UIImagePickerControllerCropRect];
+    let zoomFactor: CGFloat = (1937.0 / (rectangleValue.size.height))
 
-    //  CGRect rectangleValue = [imageRectangle CGRectValue];
-
-    //  CGFloat zoomFactor = (1937.0 / rectangleValue.size.height);
-
-    //  NSLog(@"CropRect ZoomFactor is in %2.3f", zoomFactor);
-
-    print("CropRect ZoomFactor is in zoomFactor")
+    print("CropRect ZoomFactor is ", zoomFactor) // CropRect ZoomFactor is  0.790935075541037
 
     // Displays the FINAL zoom factor by getting {Exif}dictionary's DigitalZoomRatio
+
+
+    //  NSMutableDictionary *metadata = [[NSMutableDictionary alloc] initWithDictionary:[info objectForKey:UIImagePickerControllerMediaMetadata]];
+
+
+
+    //  NSString *pictureZoomFactor = [[metadata objectForKey:@"{Exif}"] objectForKey:@"DigitalZoomRatio"];
+
+    //  NSLog(@"DigitalZoomRatio is in %@", pictureZoomFactor);
+
+
 
     // Converts both Zooms to number & multiplies together for TOTAL zoom factor
 
