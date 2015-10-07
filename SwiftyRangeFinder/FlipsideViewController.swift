@@ -8,15 +8,17 @@
 
 import UIKit
 
-class FlipsideViewController: UIViewController {
+class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
   @IBOutlet weak var helpView: UIView!
   @IBOutlet weak var headerLabel: UILabel!
   @IBOutlet weak var setupUINavigationItem: UINavigationItem!
   @IBOutlet weak var scrollView: UIScrollView!
 
-  @IBOutlet weak var objectPicker: UIPickerView!
-  @IBOutlet weak var heightPicker: UIPickerView!
+    @IBOutlet weak var objectPicker: UIPickerView!
+    let objectPickerItems = ["Light switch", "Car","Person", "Door","Golf flag", "Utility pole", "Sailboat", "Lighthouse"]
+
+//    @IBOutlet weak var heightPicker: UIPickerView!
     @IBOutlet weak var unitsSelector: UISegmentedControl!
     @IBOutlet weak var helpSwitch: UISwitch!
     
@@ -25,12 +27,13 @@ class FlipsideViewController: UIViewController {
     super.viewDidLoad()
     
 // Do any additional setup after loading the view, typically from a nib.
- //   objectPicker.dataSource = self;
- //   objectPicker.delegate = self;
+    objectPicker.dataSource = self;
+    objectPicker.delegate = self;
 
     helpView.hidden = true
-
-    var objectPickerItems = ["Light switch", "Car","Person", "Door","Golf flag", "Utility pole", "Sailboat", "Lighthouse"]
+    
+    // Define initial object & Hieght pickerView items
+    var heightPickerItems = ["0", "1","2", "3","4", "5", "6", "7", "8", "9", "10"]
   //  objectPicker.numberOfSectionsInTableView(<#T##tableView: UITableView##UITableView#>)  InComponent(3)
     objectPicker.reloadAllComponents()
 
@@ -42,8 +45,7 @@ class FlipsideViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
     
-// MARK: Custom Methods
-
+// MARK: - Custom Methods
     
     @IBAction func test2Button(sender: UIBarButtonItem) {
         print("Tests adding a new distantObject to the objectPicker")
@@ -51,6 +53,10 @@ class FlipsideViewController: UIViewController {
     
     @IBAction func testButton(sender: UIButton) {
         print("Tests deleting the selected row on the objectPicker")
+
+ //       [self.heightObjects removeObjectAtIndex:selectedRow];
+ //       [self.objectPicker reloadAllComponents];
+
     }
     
     
@@ -60,48 +66,11 @@ class FlipsideViewController: UIViewController {
     
 
   @IBAction func editButton(sender: UIBarButtonItem) {
-let objectName = "test"
-    let ac = UIAlertController(title: title, message: "Delete \(objectName) ?", preferredStyle: .Alert)
+let objectName = "selected object"
+    let ac = UIAlertController(title: title, message: "Delete \(objectName) ?", preferredStyle: .ActionSheet)
     ac.addAction(UIAlertAction(title: "Continue", style: .Default, handler: nil))
     presentViewController(ac, animated: true, completion: nil)
 
-    
-    
-    
-//    NSString *messageString = [NSString stringWithFormat:@"Delete %@ ?", objectName];
-//    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Edit Object List"
-//    message:messageString
-//    delegate:nil
-//    cancelButtonTitle:@"Delete"
-//    otherButtonTitles:@"Cancel",nil];
-//    [message setAlertViewStyle:UIAlertViewStyleDefault];
-//    [message show];
-
-    
-//      - (IBAction)testButton:(UIButton *)sender
-//    {
-//      NSLog(@"testing whatever!!");
-//      [self.heightObjects removeObjectAtIndex:selectedRow];
-//      [self.objectPicker reloadAllComponents];
-//      }
-//
-//      - (IBAction)test2Button:(UIBarButtonItem *)sender
-//    {
-//      NSLog(@"adds theDistantObject to the mutable array heightObjects");
-//      NSString *name = _theDistantObject.objectName;
-//      NSString *height =  self.theDistantObject.height;
-//      NSString *units = self.theDistantObject.heightUnits;
-//      NSLog(@"distant object %@ %@ %@", name, height, units);
-//      NSArray *newObject = [[NSArray alloc] initWithObjects:name, height, units, nil];
-//      NSArray *keys = [[NSArray alloc] initWithObjects:@"objectName", @"height", @"heightUnits", nil];
-//      NSDictionary *newDistantObject = [[NSDictionary alloc] initWithObjects:newObject forKeys:keys];
-//      [self.heightObjects addObject:newDistantObject];
-//      [self.objectPicker reloadAllComponents];
-//
-//      // And then saves the mutableArray heightObjects to a NSUserDefaults
-//      //    NSUserDefaults *savedData = [NSUserDefaults standardUserDefaults];
-//      //    [savedData ]
-//    }
 
   }
   @IBAction func showHelpView(sender: AnyObject) {
@@ -111,5 +80,26 @@ let objectName = "test"
   @IBAction func hideHelpView(sender: AnyObject) {
     helpView.hidden = true
   }
-
+    
+// MARK: - UIPickerViewDataSources methods
+    // good tutorial - http://makeapppie.com/2014/10/21/swift-swift-formatting-a-uipickerview/
+    
+    func numberOfComponentsInPickerView(objectPicker: UIPickerView) -> Int {
+        return 1
+    }
+   
+    func pickerView(objectPicker: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+            return objectPickerItems.count
+    }
+    
+// MARK: - UIPickerViewDelegate methods
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return objectPickerItems[row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        headerLabel.text = objectPickerItems[row]
+    }
+    
 }
