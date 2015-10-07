@@ -15,10 +15,13 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
   @IBOutlet weak var setupUINavigationItem: UINavigationItem!
   @IBOutlet weak var scrollView: UIScrollView!
 
+// pickerViews setup
     @IBOutlet weak var objectPicker: UIPickerView!
     let objectPickerItems = ["Light switch", "Car","Person", "Door","Golf flag", "Utility pole", "Sailboat", "Lighthouse"]
+    @IBOutlet weak var heightPicker: UIPickerView!
+    let heightPickerItems = ["0", "1","2", "3","4", "5", "6", "7", "8", "9", "10", "11","12"]
 
-//    @IBOutlet weak var heightPicker: UIPickerView!
+    
     @IBOutlet weak var unitsSelector: UISegmentedControl!
     @IBOutlet weak var helpSwitch: UISwitch!
     
@@ -26,18 +29,14 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
   override func viewDidLoad() {
     super.viewDidLoad()
     
-// Do any additional setup after loading the view, typically from a nib.
+//Additional setup after loading the view, typically from storyboard.
     objectPicker.dataSource = self;
     objectPicker.delegate = self;
+    heightPicker.dataSource = self;
+    heightPicker.delegate = self;
 
     helpView.hidden = true
     
-    // Define initial object & Hieght pickerView items
-    var heightPickerItems = ["0", "1","2", "3","4", "5", "6", "7", "8", "9", "10"]
-  //  objectPicker.numberOfSectionsInTableView(<#T##tableView: UITableView##UITableView#>)  InComponent(3)
-    objectPicker.reloadAllComponents()
-
-
   }
 
   override func didReceiveMemoryWarning() {
@@ -84,22 +83,38 @@ let objectName = "selected object"
 // MARK: - UIPickerViewDataSources methods
     // good tutorial - http://makeapppie.com/2014/10/21/swift-swift-formatting-a-uipickerview/
     
-    func numberOfComponentsInPickerView(objectPicker: UIPickerView) -> Int {
-        return 1
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        if (pickerView == self.objectPicker) {
+            return 1
+        } else {
+            return 1
+        }
     }
    
-    func pickerView(objectPicker: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if (pickerView == self.objectPicker) {
             return objectPickerItems.count
+        } else {
+            return heightPickerItems.count
+        }
     }
     
 // MARK: - UIPickerViewDelegate methods
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return objectPickerItems[row]
+        if (pickerView == self.objectPicker) {
+            return objectPickerItems[row]
+        } else {
+            return heightPickerItems[row]
+        }
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        headerLabel.text = objectPickerItems[row]
+        if (pickerView == self.objectPicker) {
+            headerLabel.text = objectPickerItems[row]
+        } else {
+            headerLabel.text = heightPickerItems[row]
+        }
     }
     
 }
