@@ -12,6 +12,8 @@
 */
 // Let get this goin
 
+// I created a rgBranch and I uploaded this to my branch and did a pull request (or at least I will right now!)
+
 import UIKit
 
 class MainViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
