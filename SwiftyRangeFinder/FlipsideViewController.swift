@@ -12,27 +12,27 @@ class FlipsideViewController: UIViewController {
 
   @IBOutlet weak var helpView: UIView!
   @IBOutlet weak var headerLabel: UILabel!
-
   @IBOutlet weak var setupUINavigationItem: UINavigationItem!
-
   @IBOutlet weak var scrollView: UIScrollView!
 
   @IBOutlet weak var objectPicker: UIPickerView!
-  
   @IBOutlet weak var heightPicker: UIPickerView!
+    @IBOutlet weak var unitsSelector: UISegmentedControl!
+    @IBOutlet weak var helpSwitch: UISwitch!
+    
+    
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
-    self.pickerView.dataSource = self;
-    self.pickerView.delegate = self;
+    
+// Do any additional setup after loading the view, typically from a nib.
+ //   objectPicker.dataSource = self;
+ //   objectPicker.delegate = self;
 
     helpView.hidden = true
 
     var objectPickerItems = ["Light switch", "Car","Person", "Door","Golf flag", "Utility pole", "Sailboat", "Lighthouse"]
-    objectPicker.numberOfSectionsInTableView(<#T##tableView: UITableView##UITableView#>)  InComponent(3)
+  //  objectPicker.numberOfSectionsInTableView(<#T##tableView: UITableView##UITableView#>)  InComponent(3)
     objectPicker.reloadAllComponents()
-
-//        objectPickerItems = [[NSArray alloc] initWithObjects:@"Light switch", @"Car", @"Person", @"Door", @"Golf flag", @"Utility pole", @"Sailboat", @"Lighthouse", nil];
 
 
   }
@@ -41,6 +41,23 @@ class FlipsideViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+    
+// MARK: Custom Methods
+
+    
+    @IBAction func test2Button(sender: UIBarButtonItem) {
+        print("Tests adding a new distantObject to the objectPicker")
+}
+    
+    @IBAction func testButton(sender: UIButton) {
+        print("Tests deleting the selected row on the objectPicker")
+    }
+    
+    
+    @IBAction func unitsSelected(sender: UISegmentedControl) {
+        print("Changes the units that are displayed on the app")
+    }
+    
 
   @IBAction func editButton(sender: UIBarButtonItem) {
 let objectName = "test"
@@ -48,6 +65,9 @@ let objectName = "test"
     ac.addAction(UIAlertAction(title: "Continue", style: .Default, handler: nil))
     presentViewController(ac, animated: true, completion: nil)
 
+    
+    
+    
 //    NSString *messageString = [NSString stringWithFormat:@"Delete %@ ?", objectName];
 //    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Edit Object List"
 //    message:messageString
@@ -57,6 +77,7 @@ let objectName = "test"
 //    [message setAlertViewStyle:UIAlertViewStyleDefault];
 //    [message show];
 
+    
 //      - (IBAction)testButton:(UIButton *)sender
 //    {
 //      NSLog(@"testing whatever!!");

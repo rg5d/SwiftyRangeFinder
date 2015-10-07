@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9052" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9040"/>
     </dependencies>
     <scenes>
         <!--RangeFinder-->
@@ -368,6 +368,9 @@
                                         <animations/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Test Button"/>
+                                        <connections>
+                                            <action selector="testButton:" destination="E5i-Oe-umS" eventType="touchUpInside" id="cPA-uO-k0p"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXh-jd-zrd">
                                         <rect key="frame" x="95" y="423" width="107" height="44"/>
@@ -403,6 +406,9 @@
                                             <segment title="Meter"/>
                                             <segment title="Mile"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="unitsSelected:" destination="E5i-Oe-umS" eventType="valueChanged" id="atZ-BK-QHb"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                                 <animations/>
@@ -413,7 +419,7 @@
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
                             <view alpha="0.66699999570846602" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PBH-2M-e9V" userLabel="Help View">
-                                <rect key="frame" x="0.0" y="65" width="320" height="440"/>
+                                <rect key="frame" x="0.0" y="565" width="320" height="440"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="085-xn-iYf">
                                         <rect key="frame" x="285" y="16" width="22" height="22"/>
@@ -488,9 +494,11 @@
                     <size key="freeformSize" width="320" height="700"/>
                     <connections>
                         <outlet property="heightPicker" destination="W2H-yX-UEp" id="BtZ-mH-LLK"/>
+                        <outlet property="helpSwitch" destination="XWc-wT-82q" id="Pl4-sh-ra1"/>
                         <outlet property="helpView" destination="PBH-2M-e9V" id="VzA-Jz-mnF"/>
                         <outlet property="objectPicker" destination="BNL-Av-X99" id="UhB-LV-ltK"/>
                         <outlet property="scrollView" destination="i9f-1J-k4c" id="B6P-Qf-2GQ"/>
+                        <outlet property="unitsSelector" destination="hOA-w9-UKR" id="baH-SJ-44n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RtL-Ez-lB8" userLabel="First Responder" sceneMemberID="firstResponder"/>
