@@ -8,7 +8,8 @@
 
 import UIKit
 
-class FlipsideViewController: UIViewController {
+
+class FlipsideViewController: UIViewController, UIPickerViewDelegate {
 
   @IBOutlet weak var helpView: UIView!
   @IBOutlet weak var headerLabel: UILabel!
@@ -20,16 +21,19 @@ class FlipsideViewController: UIViewController {
   @IBOutlet weak var objectPicker: UIPickerView!
   
   @IBOutlet weak var heightPicker: UIPickerView!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
-    self.pickerView.dataSource = self;
-    self.pickerView.delegate = self;
+//    print(globalVar)
+
+//    self.pickerView.dataSource = self;
+//    self.pickerView.delegate = self;
 
     helpView.hidden = true
 
     var objectPickerItems = ["Light switch", "Car","Person", "Door","Golf flag", "Utility pole", "Sailboat", "Lighthouse"]
-    objectPicker.numberOfSectionsInTableView(<#T##tableView: UITableView##UITableView#>)  InComponent(3)
+//    objectPicker.numberOfSectionsInTableView(<#T##tableView: UITableView##UITableView#>)  InComponent(3)
     objectPicker.reloadAllComponents()
 
 //        objectPickerItems = [[NSArray alloc] initWithObjects:@"Light switch", @"Car", @"Person", @"Door", @"Golf flag", @"Utility pole", @"Sailboat", @"Lighthouse", nil];

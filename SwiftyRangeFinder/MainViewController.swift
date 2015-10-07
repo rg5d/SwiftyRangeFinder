@@ -10,13 +10,12 @@
 //
 /*  This view is used for determining the distance to an object by using the device's camera & zoom effects.  The calculation is based upon 2 zoom factors (digital zoom & CGRect zoom) X the height of a known object (person, stop sign, etc).
 */
-// Let get this goin
-
-// I created a rgBranch and I uploaded this to my branch and did a pull request (or at least I will right now!)
 
 import UIKit
 
 class MainViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+
+  var globalVar = 5643
 
   @IBOutlet weak var cameraView: UIImageView!
 
@@ -29,14 +28,13 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
   var reticleZoomSlider: UISlider!
   var reticleView: UIImageView!
 
-
-
-
   @IBOutlet weak var cameraButtonButton: UIImageView!
-
 
   @IBOutlet weak var helpView: UIView!
 
+  var distanceUnits:String = ""
+
+  let FUTZ_FACTOR = 6.0
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -70,7 +68,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     var objectName = "Golf Flag"
     var distanceUnits = "yard"
 
-    distanceObjectLabel.text = String(format: "Distant object is a %@ %@ high %@", height, heightUnits, objectName)
+  distanceObjectLabel.text = String(format: "Distant object is a %@ %@ high %@", height, heightUnits, objectName)
 
   }
 
@@ -113,7 +111,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     let rectangleValue: CGRect = imageRectangle.CGRectValue()
     print(rectangleValue.size.height) // 2449.0
 
-    let zoomFactor: CGFloat = (1937.0 / (rectangleValue.size.height)) // .790935075541037
+    let zoomFactor = (1937.0 / (rectangleValue.size.height))  // .790935075541037
 
     print("CropRect ZoomFactor is ", zoomFactor) // CropRect ZoomFactor is  0.790935075541037
 
@@ -132,12 +130,15 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     // keeps zoom factor from being zero
     if secondZoomFactor == 0 { secondZoomFactor = 1.0}
 
-    //    var totalZoomFactor = zoomFactor * secondZoomFactor
+    var totalZoomFactor = zoomFactor * CGFloat(secondZoomFactor)
 
-//    finalZoomFactor == "Total zoom = \(totalZoomFactor)"
+    var finalZoomFactor = "Total zoom = \(totalZoomFactor)"
 
 
 //    Calculates actual distance in selected units
+
+//    distance = totalZoomFactor * flagHeight * FUTZ_FACTOR
+//    distanceLabel.text = "\(distance) \(distanceUnits) away"
 
 //    gets rid of the image controller modal view
     dismissViewControllerAnimated(true, completion: nil)
@@ -148,6 +149,4 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     print("imagePickerControllerDidCancel method \n")
     dismissViewControllerAnimated(true, completion: nil)
   }
-
-
 }
