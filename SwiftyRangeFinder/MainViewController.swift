@@ -10,9 +10,7 @@
 //
 /*  This view is used for determining the distance to an object by using the device's camera & zoom effects.  The calculation is based upon 2 zoom factors (digital zoom & CGRect zoom) X the height of a known object (person, stop sign, etc).
 */
-// Let get this goin
 
-// I created a rgBranch and I uploaded this to my branch and did a pull request (or at least I will right now!)
 
 import UIKit
 
