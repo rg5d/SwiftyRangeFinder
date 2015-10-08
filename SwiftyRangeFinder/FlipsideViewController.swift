@@ -52,7 +52,7 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     @IBAction func testButton(sender: UIButton) {
         print("Tests deleting the selected row on the objectPicker")
-
+// Need to set up selected row property
  //       [self.heightObjects removeObjectAtIndex:selectedRow];
  //       [self.objectPicker reloadAllComponents];
 
