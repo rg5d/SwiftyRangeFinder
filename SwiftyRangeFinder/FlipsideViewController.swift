@@ -13,6 +13,7 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
   @IBOutlet weak var helpView: UIView!
   @IBOutlet weak var headerLabel: UILabel!
   @IBOutlet weak var setupUINavigationItem: UINavigationItem!
+
   @IBOutlet weak var scrollView: UIScrollView!
 
 // pickerViews setup
@@ -28,8 +29,9 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupUINavigationItem.title = "Setup"
     
-//Additional setup after loading the view, typically from storyboard.
+// Additional setup after loading the view, typically from storyboard.
     objectPicker.dataSource = self;
     objectPicker.delegate = self;
     heightPicker.dataSource = self;

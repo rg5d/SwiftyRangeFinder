@@ -27,11 +27,18 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
   var reticleZoomSlider: UISlider!
   var reticleView: UIImageView!
 
+  let FUTZ_FACTOR: Double = 6.0
+
+  // Sets up labels & initial values
+  var heightUnits = "foot"
+  var height = "6"
+  var objectName = "Golf Flag"
+  var distanceUnits = "yard"
+  var flagHeight: Double = 6
 
 
 
   @IBOutlet weak var cameraButtonButton: UIImageView!
-
 
   @IBOutlet weak var helpView: UIView!
 
@@ -61,12 +68,6 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     reticleView.userInteractionEnabled = true
 
     helpView.hidden = true
-
-    // Sets up labels & initial values
-    var heightUnits = "foot"
-    var height = "6"
-    var objectName = "Golf Flag"
-    var distanceUnits = "yard"
 
     distanceObjectLabel.text = String(format: "Distant object is a %@ %@ high %@", height, heightUnits, objectName)
 
@@ -105,13 +106,18 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
   func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
   {
 
+    let image = info[UIImagePickerControllerOriginalImage]
+    print(image)
+
     //    Displays the INITIAL zoom factor by getting cropped rectangle dimensions
 
     let imageRectangle = info[UIImagePickerControllerCropRect] as! NSValue
     let rectangleValue: CGRect = imageRectangle.CGRectValue()
-    print(rectangleValue.size.height) // 2449.0
+    print("rectangleValue.size.height = \(rectangleValue.size.height)") // 2449.0
 
-    let zoomFactor: CGFloat = (1937.0 / (rectangleValue.size.height)) // .790935075541037
+    let magicNumber: CGFloat = 1937.0 // where did thid number originate from?
+
+    let zoomFactor: CGFloat = (magicNumber / (rectangleValue.size.height)) // .790935075541037
 
     print("CropRect ZoomFactor is ", zoomFactor) // CropRect ZoomFactor is  0.790935075541037
 
@@ -119,23 +125,36 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
     let metadata = info[UIImagePickerControllerMediaMetadata] as! NSDictionary
     let exif = metadata["{Exif}"] as! NSDictionary
-    let pictureZoomFactor = exif["FocalLenIn35mmFilm"] as! Double
-    let pictureZoomValue = pictureZoomFactor / 29.0
-    print("FocalLenIn35mmFilm \(pictureZoomValue)") // 1
+    let pictureZoomFactor = exif["FocalLenIn35mmFilm"] as! Double // FocalLenIn35mmFilm
+
+    print("pictureZoomFactor = \(pictureZoomFactor)")
+
+     // this is emprical from iPhone 5S .. need to verify on other models
+    let maxZoomFactor = 145.0
+    let minZoomFactor = 29.0
+
+    let pictureZoomValue = (100.0/(maxZoomFactor - minZoomFactor))*(pictureZoomFactor - minZoomFactor)
+
+    print("pictureZoomValue \(pictureZoomValue)")
 
 //    Converts both Zooms to number & multiplies together for TOTAL zoom factor
 
     var secondZoomFactor = pictureZoomValue
-    print(secondZoomFactor)
+
     // keeps zoom factor from being zero
     if secondZoomFactor == 0 { secondZoomFactor = 1.0}
 
-    //    var totalZoomFactor = zoomFactor * secondZoomFactor
+    let totalZoomFactor = zoomFactor * CGFloat(secondZoomFactor)
 
-//    finalZoomFactor == "Total zoom = \(totalZoomFactor)"
+    let finalZoomFactor = String(format:"Total zoom = %3.1f",totalZoomFactor)
 
+    myAssistantLabel.text = finalZoomFactor as String
+    print("finalZoomFactor = \(finalZoomFactor)")
 
 //    Calculates actual distance in selected units
+    print("flagHeight = \(flagHeight)")
+    let distance = totalZoomFactor * CGFloat(flagHeight * FUTZ_FACTOR)
+    distanceLabel.text = (String(format:"%3.0f %@ away", distance, distanceUnits))
 
 //    gets rid of the image controller modal view
     dismissViewControllerAnimated(true, completion: nil)
