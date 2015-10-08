@@ -109,12 +109,12 @@ let objectName = "selected object"
         }
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if (pickerView == self.objectPicker) {
-            headerLabel.text = objectPickerItems[row]
-        } else {
-            headerLabel.text = heightPickerItems[row]
-        }
-    }
+//    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        if (pickerView == self.objectPicker) {
+//            headerLabel.text = objectPickerItems[row]
+//        } else {
+//            headerLabel.text = heightPickerItems[row]
+//        }
+//    }
     
 }

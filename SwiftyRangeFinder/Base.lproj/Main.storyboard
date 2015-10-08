@@ -352,6 +352,10 @@
                                                 <integer key="value" value="12"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="i9f-1J-k4c" id="0Hq-Wp-FP2"/>
+                                            <outlet property="delegate" destination="i9f-1J-k4c" id="9RX-Mw-Qhc"/>
+                                        </connections>
                                     </pickerView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="by ChrisPLamb Labs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOV-8a-aU5">
                                         <rect key="frame" x="8" y="512" width="107" height="21"/>
@@ -497,6 +501,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="700"/>
                     <connections>
+                        <outlet property="heightPicker" destination="W2H-yX-UEp" id="WO3-MH-352"/>
                         <outlet property="helpSwitch" destination="XWc-wT-82q" id="Pl4-sh-ra1"/>
                         <outlet property="helpView" destination="PBH-2M-e9V" id="VzA-Jz-mnF"/>
                         <outlet property="objectPicker" destination="BNL-Av-X99" id="UhB-LV-ltK"/>
