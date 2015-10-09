@@ -24,8 +24,13 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
   @IBOutlet weak var myAssistantLabel: UILabel!
 
+  @IBOutlet weak var cameraButtonButton: UIImageView!
+
+  @IBOutlet weak var helpView: UIView!
+
   var reticleZoomSlider: UISlider!
   var reticleView: UIImageView!
+//  var theDistantObject: DistantObject!
 
   let FUTZ_FACTOR: Double = 6.0
 
@@ -34,19 +39,12 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
   var height = "6"
   var objectName = "Golf Flag"
   var distanceUnits = "yard"
-  var flagHeight: Double = 6
-
-
-
-  @IBOutlet weak var cameraButtonButton: UIImageView!
-
-  @IBOutlet weak var helpView: UIView!
+  var flagHeight: Double = 6.0
 
 
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
-
 
     // Checks to see if the camera is available
     if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)){
@@ -59,7 +57,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
       cameraButtonButton.hidden = true
     }
 
-    // Build a view to overlay over the camera view including the zoom factor
+    // Builds a view to overlay over the camera view including the zoom factor
     let frame = CGRectMake(80.0, 150.0, 160.0, 120.0)
 
     reticleView = UIImageView()
@@ -71,7 +69,23 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
     distanceObjectLabel.text = String(format: "Distant object is a %@ %@ high %@", height, heightUnits, objectName)
 
+    // Builds the slider and rotates it 90 degrees
+
+    let sliderFrame = CGRectMake(-20.0, 50.0, 150.0, 50.0);
+    reticleZoomSlider = UISlider()
+    reticleZoomSlider.frame = sliderFrame
+    let trans = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
+    reticleZoomSlider.transform = trans
+    reticleView.addSubview(reticleZoomSlider)
   }
+
+// mark - Custom Methods
+
+  func testButton() {
+    print("testButton is for testing singleton action")
+//    theDistantObject = DistantObject.getSingletonInstance
+  }
+
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
@@ -90,7 +104,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     print("Trying to get the camera controls to show")
 
 //    Sets self to be the ImagePickerController delegate
-    let imagePickerController: UIImagePickerController = UIImagePickerController()
+    let imagePickerController = UIImagePickerController()
     imagePickerController.delegate = self;
 
 //    Configures the camera & presents the modal camera view
@@ -107,53 +121,54 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
   {
 
     let image = info[UIImagePickerControllerOriginalImage]
-    print(image)
+    print("OrignalImage=\(image?.description)")
 
     //    Displays the INITIAL zoom factor by getting cropped rectangle dimensions
 
     let imageRectangle = info[UIImagePickerControllerCropRect] as! NSValue
     let rectangleValue: CGRect = imageRectangle.CGRectValue()
-    print("rectangleValue.size.height = \(rectangleValue.size.height)") // 2449.0
+    print("rectangleValue.size.height = \(rectangleValue.size.height)")
 
-    let magicNumber: CGFloat = 1937.0 // where did thid number originate from?
+//    rectangleValue.size.height range: 817 to 2449 on iPhone 5S
+    let minRectangleViewSizeHeight = 817.0
+    let maxRectangleViewSizeHeight = 2449.0
 
-    let zoomFactor: CGFloat = (magicNumber / (rectangleValue.size.height)) // .790935075541037
-
-    print("CropRect ZoomFactor is ", zoomFactor) // CropRect ZoomFactor is  0.790935075541037
+    let digitalZoomFactor = 1.0 - CGFloat(1.0/(maxRectangleViewSizeHeight - minRectangleViewSizeHeight)) * (rectangleValue.size.height - CGFloat(minRectangleViewSizeHeight))
+    print("digitalZoomFactor = \(digitalZoomFactor)")
 
 //    Displays the FINAL zoom factor by getting {Exif}dictionary's FocalLenIn35mmFilm
 
     let metadata = info[UIImagePickerControllerMediaMetadata] as! NSDictionary
     let exif = metadata["{Exif}"] as! NSDictionary
-    let pictureZoomFactor = exif["FocalLenIn35mmFilm"] as! Double // FocalLenIn35mmFilm
+    let opticalZoomFactor = exif["FocalLenIn35mmFilm"] as! Double // FocalLenIn35mmFilm
 
-    print("pictureZoomFactor = \(pictureZoomFactor)")
+//    print("opticalZoomFactor = \(opticalZoomFactor)")
 
-     // this is emprical from iPhone 5S .. need to verify on other models
+     // this is emprical from iPhone 5S -- need to verify on other models
     let maxZoomFactor = 145.0
     let minZoomFactor = 29.0
 
-    let pictureZoomValue = (100.0/(maxZoomFactor - minZoomFactor))*(pictureZoomFactor - minZoomFactor)
+    let opticalZoomValue = (100.0/(maxZoomFactor - minZoomFactor))*(opticalZoomFactor - minZoomFactor)
 
-    print("pictureZoomValue \(pictureZoomValue)")
+    print("opticalZoomValue = \(opticalZoomValue)")
 
 //    Converts both Zooms to number & multiplies together for TOTAL zoom factor
 
-    var secondZoomFactor = pictureZoomValue
+    var secondZoomFactor = opticalZoomValue
 
     // keeps zoom factor from being zero
     if secondZoomFactor == 0 { secondZoomFactor = 1.0}
 
-    let totalZoomFactor = zoomFactor * CGFloat(secondZoomFactor)
+    let totalZoomFactor = opticalZoomFactor * secondZoomFactor
 
     let finalZoomFactor = String(format:"Total zoom = %3.1f",totalZoomFactor)
 
     myAssistantLabel.text = finalZoomFactor as String
-    print("finalZoomFactor = \(finalZoomFactor)")
+    print(finalZoomFactor)
 
 //    Calculates actual distance in selected units
     print("flagHeight = \(flagHeight)")
-    let distance = totalZoomFactor * CGFloat(flagHeight * FUTZ_FACTOR)
+    let distance = totalZoomFactor * flagHeight * FUTZ_FACTOR
     distanceLabel.text = (String(format:"%3.0f %@ away", distance, distanceUnits))
 
 //    gets rid of the image controller modal view
