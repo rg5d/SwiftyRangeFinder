@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B43039EB1BC8504C004250A8 /* DistantObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43039EA1BC8504C004250A8 /* DistantObject.swift */; settings = {ASSET_TAGS = (); }; };
 		B47F9F5D1BBE5D1D00BD3275 /* HeightFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F9F5C1BBE5D1D00BD3275 /* HeightFinderViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B47F9F5F1BBE5D9C00BD3275 /* FlipsideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F9F5E1BBE5D9C00BD3275 /* FlipsideViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B4BCEA581BBE57CC008A529C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BCEA571BBE57CC008A529C /* AppDelegate.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B43039EA1BC8504C004250A8 /* DistantObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistantObject.swift; sourceTree = "<group>"; };
 		B47F9F5C1BBE5D1D00BD3275 /* HeightFinderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeightFinderViewController.swift; sourceTree = "<group>"; };
 		B47F9F5E1BBE5D9C00BD3275 /* FlipsideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlipsideViewController.swift; sourceTree = "<group>"; };
 		B4BCEA541BBE57CC008A529C /* SwiftyRangeFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyRangeFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +111,7 @@
 				B4BCEA991BBE5AFB008A529C /* MainViewController.swift */,
 				B47F9F5E1BBE5D9C00BD3275 /* FlipsideViewController.swift */,
 				B47F9F5C1BBE5D1D00BD3275 /* HeightFinderViewController.swift */,
+				B43039EA1BC8504C004250A8 /* DistantObject.swift */,
 			);
 			path = SwiftyRangeFinder;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B43039EB1BC8504C004250A8 /* DistantObject.swift in Sources */,
 				B4BCEA581BBE57CC008A529C /* AppDelegate.swift in Sources */,
 				B4BCEA9A1BBE5AFB008A529C /* MainViewController.swift in Sources */,
 				B47F9F5F1BBE5D9C00BD3275 /* FlipsideViewController.swift in Sources */,
