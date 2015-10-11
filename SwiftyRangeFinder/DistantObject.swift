@@ -12,18 +12,13 @@
 import Foundation
 
 class DistantObject: NSObject {
-  var objectName: String!
-  var height: String!
-  var heightUnits: String!
-  var distanceUunits: String!
-  var singletonDistantObject: DistantObject!
 
-  func getSingeltonInstance() -> DistantObject{
+  var objectName: String?
+  var height: String?
+  var heightUnits: String?
+  var distanceUnits: String?
 
-    if (singletonDistantObject == nil){
-      singletonDistantObject = DistantObject()
-    }
-    return singletonDistantObject
+  override init(){
+    super.init()
   }
-
 }

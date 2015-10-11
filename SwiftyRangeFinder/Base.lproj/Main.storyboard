@@ -121,7 +121,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="RangeFinder" id="2kE-yx-KKj">
-                        <barButtonItem key="leftBarButtonItem" title="Test" id="VUv-aD-169"/>
+                        <barButtonItem key="leftBarButtonItem" title="Test" id="VUv-aD-169">
+                            <connections>
+                                <action selector="testButton" destination="9pv-A4-QxB" id="3Qv-4S-OCj"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cameraButtonButton" destination="Bud-ch-R65" id="Jfy-wU-Glv"/>

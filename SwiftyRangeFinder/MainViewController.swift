@@ -34,10 +34,10 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
   let FUTZ_FACTOR: Double = 6.0
 
-  // Sets up labels & initial values
-  var heightUnits = "foot"
-  var height = "6"
-  var objectName = "Golf Flag"
+//  // Sets up labels & initial values
+//  var heightUnits = "foot"
+//  var height = "6"
+//  var objectName = "Golf Flag"
   var distanceUnits = "yard"
   var flagHeight: Double = 6.0
 
@@ -67,7 +67,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
     helpView.hidden = true
 
-    distanceObjectLabel.text = String(format: "Distant object is a %@ %@ high %@", height, heightUnits, objectName)
+//    distanceObjectLabel.text = String(format: "Distant object is a %@ %@ high %@", height, heightUnits, objectName)
 
     // Builds the slider and rotates it 90 degrees
 
@@ -79,11 +79,34 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     reticleView.addSubview(reticleZoomSlider)
   }
 
+  override func shouldAutorotate() -> Bool {
+    return false
+  }
+
 // mark - Custom Methods
 
-  func testButton() {
+  @IBAction func testButton() {
     print("testButton is for testing singleton action")
-//    theDistantObject = DistantObject.getSingletonInstance
+    let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let theDistantObject = delegate.distantObject
+    if let heightUnits = theDistantObject.heightUnits{
+      print(heightUnits)
+    }
+
+    if let height = theDistantObject.height {
+      print(height)
+    }
+
+    if let objectName = theDistantObject.objectName {
+      print(objectName)
+    }
+
+    if let distanceUnits = theDistantObject.distanceUnits {
+      print(distanceUnits)
+    }
+
+
+
   }
 
 
@@ -180,6 +203,9 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     print("imagePickerControllerDidCancel method \n")
     dismissViewControllerAnimated(true, completion: nil)
   }
+
+
+
 
 
 }
