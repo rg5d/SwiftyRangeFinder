@@ -26,6 +26,7 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var unitsSelector: UISegmentedControl!
     @IBOutlet weak var helpSwitch: UISwitch!
     
+// MARK: - Lifecycle Methods
     
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -50,8 +51,8 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     @IBAction func test2Button(sender: UIBarButtonItem) {
         print("Tests adding a new distantObject to the objectPicker")
-        let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let theDistantObject = delegate.distantObject
+ //       let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+ //       let theDistantObject = delegate.distantObject
 }
     
     @IBAction func testButton(sender: UIButton) {
@@ -62,9 +63,18 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
 
     }
     
-    
     @IBAction func unitsSelected(sender: UISegmentedControl) {
         print("Changes the units that are displayed on the app")
+        switch (self.unitsSelector.selectedSegmentIndex) {
+        case 0:
+            print("INCHES")
+            break
+        case 1:
+            print("FEET")
+            break
+        default:
+            print("WTF")
+        }
     }
     
 
@@ -126,6 +136,7 @@ let objectName = "selected object"
             let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             let theDistantObject = delegate.distantObject
             theDistantObject.objectName = objectPickerItems[row]
+            print("The distant object is a \(theDistantObject.objectName)")
         }
     }
     
