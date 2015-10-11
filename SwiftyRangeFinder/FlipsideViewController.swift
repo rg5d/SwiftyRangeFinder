@@ -20,8 +20,8 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var objectPicker: UIPickerView!
     let objectPickerItems = ["Light switch", "Car","Person", "Door","Golf flag", "Utility pole", "Sailboat", "Lighthouse"]
     @IBOutlet weak var heightPicker: UIPickerView!
-    let heightPickerItems = ["0", "1","2", "3","4", "5", "6", "7", "8", "9", "10", "11","12"]
-
+    let heightPickerItems = ["0", "1","2", "3","4", "5", "6", "7", "8", "9", "10", "11","12", "13","14", "15", "16", "17", "18", "19", "20", "21","22", "23","24", "25", "26", "27", "28", "29", "30", "31","32", "33", "34", "35", "36", "37", "38", "39", "40", "45", "50", "55", "60", "65", "70", "80", "90", "99"]
+    let unitsPickerItems = ["inch", "foot","yard", "fathom","furlong", "mile", "league"]
     
     @IBOutlet weak var unitsSelector: UISegmentedControl!
     @IBOutlet weak var helpSwitch: UISwitch!
@@ -89,28 +89,36 @@ let objectName = "selected object"
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         if (pickerView == self.objectPicker) {
-            return 1
-        } else {
-            return 1
-        }
+            return 1}
+        if (pickerView == self.heightPicker) {
+            return 2}
+        return -1       // we'll use this as an error condition
     }
    
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if (pickerView == self.objectPicker) {
-            return objectPickerItems.count
-        } else {
-            return heightPickerItems.count
+            return objectPickerItems.count}
+        if (pickerView == self.heightPicker) {
+            if (component == 0) {
+                return heightPickerItems.count}
+            if (component == 1) {
+                return unitsPickerItems.count}
         }
+        return -1       // we'll use this as an error condition
     }
     
 // MARK: - UIPickerViewDelegate methods
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if (pickerView == self.objectPicker) {
-            return objectPickerItems[row]
-        } else {
-            return heightPickerItems[row]
+            return objectPickerItems[row]}
+        if (pickerView == self.heightPicker) {
+            if (component == 0) {
+                return heightPickerItems[row]}
+            if (component == 1) {
+                return unitsPickerItems[row]}
         }
+        return "error"
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -118,7 +126,6 @@ let objectName = "selected object"
             let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             let theDistantObject = delegate.distantObject
             theDistantObject.objectName = objectPickerItems[row]
- //           theDistantObject.heightUnits = un
         }
     }
     
