@@ -105,6 +105,11 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     reticleView!.addSubview(reticleZoomSlider)
   }
 
+  override func viewWillAppear(animated: Bool) {
+    print("viewWillAppear")
+        distanceObjectLabel.text = String(format: "Distant object is a %@ %@ high %@", height!, heightUnits!, objectName!)
+  }
+
   override func shouldAutorotate() -> Bool {
     return false
   }
@@ -115,6 +120,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     print("testButton is for testing singleton action")
     let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     let theDistantObject = delegate.distantObject
+    print(theDistantObject)
     if let heightUnits = theDistantObject.heightUnits{
       print(heightUnits)
     }
