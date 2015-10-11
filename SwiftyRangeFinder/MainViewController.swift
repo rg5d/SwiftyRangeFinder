@@ -24,23 +24,25 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
   @IBOutlet weak var myAssistantLabel: UILabel!
 
+  var reticleZoomSlider: UISlider!
+
   @IBOutlet weak var cameraButtonButton: UIImageView!
 
   @IBOutlet weak var helpView: UIView!
 
-  var reticleZoomSlider: UISlider!
-  var reticleView: UIImageView!
-//  var theDistantObject: DistantObject!
+  var firstZoomFactor: CGFloat?
+  var secondZoomFactor: Float?
+  var totalZoomFactor: Float?
+  var flagHeight: Double?
+  var reticleView: UIImageView?
+  var imagePickerController: UIImagePickerController?
+
+  var distanceUnits: String?
+  var objectName: String?
+  var height: String?
+  var heightUnits: String?
 
   let FUTZ_FACTOR: Double = 6.0
-
-//  // Sets up labels & initial values
-//  var heightUnits = "foot"
-//  var height = "6"
-//  var objectName = "Golf Flag"
-  var distanceUnits = "yard"
-  var flagHeight: Double = 6.0
-
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -61,13 +63,37 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     let frame = CGRectMake(80.0, 150.0, 160.0, 120.0)
 
     reticleView = UIImageView()
-    reticleView.frame = frame
-    reticleView.image = UIImage(named: "Reticle(2).png")
-    reticleView.userInteractionEnabled = true
+    reticleView!.frame = frame
+    reticleView!.image = UIImage(named: "Reticle(2).png")
+    reticleView!.userInteractionEnabled = true
 
     helpView.hidden = true
 
-//    distanceObjectLabel.text = String(format: "Distant object is a %@ %@ high %@", height, heightUnits, objectName)
+    // Sets up labels & initial values
+    heightUnits = "foot"
+    height = "6"
+    objectName = "Golf Flag"
+    distanceUnits = "yard"
+
+    let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let theDistantObject = delegate.distantObject
+
+    if let height = theDistantObject.height {
+      self.height = height
+      print(height)
+    }
+
+    if let objectName = theDistantObject.objectName {
+      self.objectName = objectName
+      print(objectName)
+    }
+
+    if let distanceUnits = theDistantObject.distanceUnits {
+      self.distanceUnits = distanceUnits
+      print(distanceUnits)
+    }
+
+    distanceObjectLabel.text = String(format: "Distant object is a %@ %@ high %@", height!, heightUnits!, objectName!)
 
     // Builds the slider and rotates it 90 degrees
 
@@ -76,7 +102,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     reticleZoomSlider.frame = sliderFrame
     let trans = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
     reticleZoomSlider.transform = trans
-    reticleView.addSubview(reticleZoomSlider)
+    reticleView!.addSubview(reticleZoomSlider)
   }
 
   override func shouldAutorotate() -> Bool {
@@ -94,6 +120,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     }
 
     if let height = theDistantObject.height {
+      self.height = height
       print(height)
     }
 
@@ -104,9 +131,6 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     if let distanceUnits = theDistantObject.distanceUnits {
       print(distanceUnits)
     }
-
-
-
   }
 
 
@@ -191,8 +215,8 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
 //    Calculates actual distance in selected units
     print("flagHeight = \(flagHeight)")
-    let distance = totalZoomFactor * flagHeight * FUTZ_FACTOR
-    distanceLabel.text = (String(format:"%3.0f %@ away", distance, distanceUnits))
+    let distance: Double = totalZoomFactor * flagHeight! * FUTZ_FACTOR
+    distanceLabel.text = (String(format:"%3.0f %@ away", distance, distanceUnits!))
 
 //    gets rid of the image controller modal view
     dismissViewControllerAnimated(true, completion: nil)
@@ -203,9 +227,4 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     print("imagePickerControllerDidCancel method \n")
     dismissViewControllerAnimated(true, completion: nil)
   }
-
-
-
-
-
 }
