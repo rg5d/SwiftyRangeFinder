@@ -65,6 +65,16 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     @IBAction func unitsSelected(sender: UISegmentedControl) {
         print("Changes the units that are displayed on the app")
+        switch (self.unitsSelector.selectedSegmentIndex) {
+        case 0:
+            print("INCHES")
+            break
+        case 1:
+            print("FEET")
+            break
+        default:
+            print("WTF")
+        }
     }
     
 
