@@ -51,7 +51,7 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBAction func test2Button(sender: UIBarButtonItem) {
         print("Tests adding a new distantObject to the objectPicker")
         let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let theDistantObject = delegate.distantObject
+//        let theDistantObject = delegate.distantObject
 }
     
     @IBAction func testButton(sender: UIButton) {

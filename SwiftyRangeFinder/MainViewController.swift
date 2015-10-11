@@ -30,17 +30,17 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
   @IBOutlet weak var helpView: UIView!
 
-  var firstZoomFactor: CGFloat
-  var secondZoomFactor: Float
-  var totalZoomFactor: Float
-  var flagHeight: Float
-  var reticleView: UIImageView
-  var imagePickerController: UIImagePickerController
+  var firstZoomFactor: CGFloat?
+  var secondZoomFactor: Float?
+  var totalZoomFactor: Float?
+  var flagHeight: Double?
+  var reticleView: UIImageView?
+  var imagePickerController: UIImagePickerController?
 
-  var distanceUnits: String
-  var objectName: String
-  var height: String
-  var heightUnits: String
+  var distanceUnits: String?
+  var objectName: String?
+  var height: String?
+  var heightUnits: String?
 
   let FUTZ_FACTOR: Double = 6.0
 
@@ -63,9 +63,9 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     let frame = CGRectMake(80.0, 150.0, 160.0, 120.0)
 
     reticleView = UIImageView()
-    reticleView.frame = frame
-    reticleView.image = UIImage(named: "Reticle(2).png")
-    reticleView.userInteractionEnabled = true
+    reticleView!.frame = frame
+    reticleView!.image = UIImage(named: "Reticle(2).png")
+    reticleView!.userInteractionEnabled = true
 
     helpView.hidden = true
 
@@ -93,7 +93,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
       print(distanceUnits)
     }
 
-    distanceObjectLabel.text = String(format: "Distant object is a %@ %@ high %@", height, heightUnits, objectName)
+    distanceObjectLabel.text = String(format: "Distant object is a %@ %@ high %@", height!, heightUnits!, objectName!)
 
     // Builds the slider and rotates it 90 degrees
 
@@ -102,7 +102,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     reticleZoomSlider.frame = sliderFrame
     let trans = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
     reticleZoomSlider.transform = trans
-    reticleView.addSubview(reticleZoomSlider)
+    reticleView!.addSubview(reticleZoomSlider)
   }
 
   override func shouldAutorotate() -> Bool {
@@ -215,8 +215,8 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
 //    Calculates actual distance in selected units
     print("flagHeight = \(flagHeight)")
-    let distance = totalZoomFactor * flagHeight * FUTZ_FACTOR
-    distanceLabel.text = (String(format:"%3.0f %@ away", distance, distanceUnits))
+    let distance: Double = totalZoomFactor * flagHeight! * FUTZ_FACTOR
+    distanceLabel.text = (String(format:"%3.0f %@ away", distance, distanceUnits!))
 
 //    gets rid of the image controller modal view
     dismissViewControllerAnimated(true, completion: nil)
@@ -227,9 +227,4 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     print("imagePickerControllerDidCancel method \n")
     dismissViewControllerAnimated(true, completion: nil)
   }
-
-
-
-
-
 }
