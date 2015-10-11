@@ -107,7 +107,27 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
   override func viewWillAppear(animated: Bool) {
     print("viewWillAppear")
-        distanceObjectLabel.text = String(format: "Distant object is a %@ %@ high %@", height!, heightUnits!, objectName!)
+
+    let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let theDistantObject = delegate.distantObject
+
+    if let height = theDistantObject.height {
+      self.height = height
+      print(height)
+    }
+
+    if let objectName = theDistantObject.objectName {
+      self.objectName = objectName
+      print(objectName)
+    }
+
+    if let heightUnits = theDistantObject.heightUnits {
+      self.heightUnits = heightUnits
+      print(heightUnits)
+    }
+
+    distanceObjectLabel.text = String(format: "Distant object is a %@ %@ high %@", height!, heightUnits!, objectName!)
+
   }
 
   override func shouldAutorotate() -> Bool {
