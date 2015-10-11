@@ -24,23 +24,25 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
   @IBOutlet weak var myAssistantLabel: UILabel!
 
+  var reticleZoomSlider: UISlider!
+
   @IBOutlet weak var cameraButtonButton: UIImageView!
 
   @IBOutlet weak var helpView: UIView!
 
-  var reticleZoomSlider: UISlider!
-  var reticleView: UIImageView!
-//  var theDistantObject: DistantObject!
+  var firstZoomFactor: CGFloat
+  var secondZoomFactor: Float
+  var totalZoomFactor: Float
+  var flagHeight: Float
+  var reticleView: UIImageView
+  var imagePickerController: UIImagePickerController
+
+  var distanceUnits: String
+  var objectName: String
+  var height: String
+  var heightUnits: String
 
   let FUTZ_FACTOR: Double = 6.0
-
-//  // Sets up labels & initial values
-//  var heightUnits = "foot"
-//  var height = "6"
-//  var objectName = "Golf Flag"
-  var distanceUnits = "yard"
-  var flagHeight: Double = 6.0
-
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -67,7 +69,31 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
     helpView.hidden = true
 
-//    distanceObjectLabel.text = String(format: "Distant object is a %@ %@ high %@", height, heightUnits, objectName)
+    // Sets up labels & initial values
+    heightUnits = "foot"
+    height = "6"
+    objectName = "Golf Flag"
+    distanceUnits = "yard"
+
+    let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let theDistantObject = delegate.distantObject
+
+    if let height = theDistantObject.height {
+      self.height = height
+      print(height)
+    }
+
+    if let objectName = theDistantObject.objectName {
+      self.objectName = objectName
+      print(objectName)
+    }
+
+    if let distanceUnits = theDistantObject.distanceUnits {
+      self.distanceUnits = distanceUnits
+      print(distanceUnits)
+    }
+
+    distanceObjectLabel.text = String(format: "Distant object is a %@ %@ high %@", height, heightUnits, objectName)
 
     // Builds the slider and rotates it 90 degrees
 
@@ -94,6 +120,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     }
 
     if let height = theDistantObject.height {
+      self.height = height
       print(height)
     }
 
@@ -104,9 +131,6 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     if let distanceUnits = theDistantObject.distanceUnits {
       print(distanceUnits)
     }
-
-
-
   }
 
 
