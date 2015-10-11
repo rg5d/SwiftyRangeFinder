@@ -138,7 +138,9 @@ let objectName = "selected object"
             theDistantObject.objectName = objectPickerItems[row]
             theDistantObject.height = heightPickerItems[row]
             theDistantObject.heightUnits = unitsPickerItems[row]
-            print("The distant object is a \(theDistantObject.objectName)")
+            print("The distant object is a \(theDistantObject.objectName!)")
+            print("The height is a \(theDistantObject.height!)")
+            print("The units are \(theDistantObject.heightUnits!)")
         }
     }
     
