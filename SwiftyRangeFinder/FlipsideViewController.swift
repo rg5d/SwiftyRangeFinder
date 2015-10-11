@@ -136,6 +136,8 @@ let objectName = "selected object"
             let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             let theDistantObject = delegate.distantObject
             theDistantObject.objectName = objectPickerItems[row]
+            theDistantObject.height = heightPickerItems[row]
+            theDistantObject.heightUnits = unitsPickerItems[row]
             print("The distant object is a \(theDistantObject.objectName)")
         }
     }
