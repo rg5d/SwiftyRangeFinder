@@ -50,6 +50,8 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     @IBAction func test2Button(sender: UIBarButtonItem) {
         print("Tests adding a new distantObject to the objectPicker")
+        let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let theDistantObject = delegate.distantObject
 }
     
     @IBAction func testButton(sender: UIButton) {
@@ -111,12 +113,13 @@ let objectName = "selected object"
         }
     }
     
-//    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        if (pickerView == self.objectPicker) {
-//            headerLabel.text = objectPickerItems[row]
-//        } else {
-//            headerLabel.text = heightPickerItems[row]
-//        }
-//    }
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if (pickerView == self.objectPicker) {
+            let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let theDistantObject = delegate.distantObject
+            theDistantObject.objectName = objectPickerItems[row]
+ //           theDistantObject.heightUnits = un
+        }
+    }
     
 }
