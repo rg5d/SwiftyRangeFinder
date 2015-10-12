@@ -26,7 +26,7 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var unitsSelector: UISegmentedControl!
     @IBOutlet weak var helpSwitch: UISwitch!
     
-    var distantObjectsArray: NSMutableArray!
+    var distantObjectsArray: NSMutableArray = NSMutableArray()
     
 // MARK: - Lifecycle Methods
     
@@ -80,16 +80,17 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
     }
     
-//    func loadInitialData() {
-//        print("Loads the preconfigured distantObjects into the array")
-//        
-//        let item00: DistantObject
-//        item00.objectName = "START"
-//        item00.height = "0000"
-//        item00.heightUnits = "inches"
-//        self.distantObjectsArray addObject(item00: DistantObject)
-//    }
-    
+    func loadInitialData() {
+
+        print("Loads the preconfigured distantObjects into the array")
+        
+        let item00 = DistantObject()
+        item00.objectName = "START"
+        item00.height = "0000"
+        item00.heightUnits = "inches"
+        distantObjectsArray.addObject(item00)
+    }
+
 
   @IBAction func editButton(sender: UIBarButtonItem) {
     let objectName = "selected object"

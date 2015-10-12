@@ -42,9 +42,7 @@ class HeightFinderViewController: UIViewController, UIGestureRecognizerDelegate,
 
   @IBOutlet weak var angleOneButton: UIButton!
 
-  
-//  @property (nonatomic, strong) IBOutlet UIButton *angleTwoButton;
-//
+
 //  - (IBAction)setAngleOneButton:(UIButton *)sender;
 //  - (IBAction)setAngleTwoButton:(UIButton *)sender;
 //
