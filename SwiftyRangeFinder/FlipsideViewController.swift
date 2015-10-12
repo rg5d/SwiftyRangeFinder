@@ -26,6 +26,7 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var unitsSelector: UISegmentedControl!
     @IBOutlet weak var helpSwitch: UISwitch!
     
+// MARK: - Lifecycle Methods
     
   override func viewDidLoad() {
     super.viewDidLoad()
