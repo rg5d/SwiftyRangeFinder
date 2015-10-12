@@ -44,6 +44,8 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
   let FUTZ_FACTOR: Double = 6.0
 
+// MARK: - Lifecycle Methods
+    
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
@@ -134,7 +136,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     return false
   }
 
-// mark - Custom Methods
+// MARK: - Custom Methods
 
   @IBAction func testButton() {
     print("testButton is for testing singleton action")

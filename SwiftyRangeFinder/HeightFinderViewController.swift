@@ -13,6 +13,9 @@ class HeightFinderViewController: UIViewController {
   @IBOutlet weak var helpView: UIView!
 
   @IBOutlet weak var headerLabel: UILabel!
+    
+// MARK: - Lifecycle Methods
+    
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
@@ -20,10 +23,6 @@ class HeightFinderViewController: UIViewController {
     preferredInterfaceOrientationForPresentation().isLandscape
 
     helpView.hidden = true
-
-
-
-
   }
 
   override func didReceiveMemoryWarning() {
@@ -34,6 +33,8 @@ class HeightFinderViewController: UIViewController {
   override func shouldAutorotate() -> Bool {
     return false;
   }
+    
+// MARK: - Custom Methods
 
   @IBAction func showHelpview(sender: AnyObject) {
     helpView.hidden = false
