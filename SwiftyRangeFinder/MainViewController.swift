@@ -100,12 +100,12 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
 // Builds the slider and rotates it 90 degrees
 
-    let sliderFrame = CGRectMake(-20.0, 50.0, 150.0, 50.0);
-    reticleZoomSlider = UISlider()
-    reticleZoomSlider.frame = sliderFrame
-    let trans = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
-    reticleZoomSlider.transform = trans
-    reticleView!.addSubview(reticleZoomSlider)
+//    let sliderFrame = CGRectMake(-20.0, 50.0, 150.0, 50.0);
+//    reticleZoomSlider = UISlider()
+//    reticleZoomSlider.frame = sliderFrame
+//    let trans = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
+//    reticleZoomSlider.transform = trans
+//    reticleView!.addSubview(reticleZoomSlider)
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -131,6 +131,11 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
     distanceObjectLabel.text = String(format: "Distant object is a %@ %@ high %@", height!, heightUnits!, objectName!)
   }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 
   override func shouldAutorotate() -> Bool {
     return false
@@ -159,11 +164,6 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     if let distanceUnits = theDistantObject.distanceUnits {
       print(distanceUnits)
     }
-  }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
 
   @IBAction func showHelpview(sender: AnyObject) {

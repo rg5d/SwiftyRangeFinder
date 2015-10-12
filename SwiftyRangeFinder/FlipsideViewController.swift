@@ -26,6 +26,8 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var unitsSelector: UISegmentedControl!
     @IBOutlet weak var helpSwitch: UISwitch!
     
+    var distantObjectsArray: NSMutableArray!
+    
 // MARK: - Lifecycle Methods
     
   override func viewDidLoad() {
@@ -78,15 +80,24 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
     }
     
+//    func loadInitialData() {
+//        print("Loads the preconfigured distantObjects into the array")
+//        
+//        let item00: DistantObject
+//        item00.objectName = "START"
+//        item00.height = "0000"
+//        item00.heightUnits = "inches"
+//        self.distantObjectsArray addObject(item00: DistantObject)
+//    }
+    
 
   @IBAction func editButton(sender: UIBarButtonItem) {
-let objectName = "selected object"
+    let objectName = "selected object"
     let ac = UIAlertController(title: title, message: "Delete \(objectName) ?", preferredStyle: .ActionSheet)
     ac.addAction(UIAlertAction(title: "Continue", style: .Default, handler: nil))
     presentViewController(ac, animated: true, completion: nil)
-
-
   }
+    
   @IBAction func showHelpView(sender: AnyObject) {
     helpView.hidden = false
   }
