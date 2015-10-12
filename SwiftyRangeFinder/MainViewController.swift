@@ -48,7 +48,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
 
-    // Checks to see if the camera is available
+// Checks to see if the camera is available
     if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)){
       print("camera is available - We must be on the iPhone! \n")
       myAssistantLabel.text = "Tap to open RangeFinder"
@@ -75,6 +75,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     objectName = "Golf Flag"
     distanceUnits = "yard"
 
+// Load data from AppDelegate singleton distantObject
     let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     let theDistantObject = delegate.distantObject
 
@@ -95,7 +96,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
     distanceObjectLabel.text = String(format: "Distant object is a %@ %@ high %@", height!, heightUnits!, objectName!)
 
-    // Builds the slider and rotates it 90 degrees
+// Builds the slider and rotates it 90 degrees
 
     let sliderFrame = CGRectMake(-20.0, 50.0, 150.0, 50.0);
     reticleZoomSlider = UISlider()
@@ -106,7 +107,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
   }
 
   override func viewWillAppear(animated: Bool) {
-    print("viewWillAppear")
+    print("MainController viewWillAppear")
 
     let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     let theDistantObject = delegate.distantObject
@@ -127,7 +128,6 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     }
 
     distanceObjectLabel.text = String(format: "Distant object is a %@ %@ high %@", height!, heightUnits!, objectName!)
-
   }
 
   override func shouldAutorotate() -> Bool {
@@ -158,7 +158,6 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
       print(distanceUnits)
     }
   }
-
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
