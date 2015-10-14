@@ -73,8 +73,9 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     helpView.hidden = true
 
     // Sets up labels & initial values
+    flagHeight = 4.0
     heightUnits = "foot"
-    height = "6"
+    height = "4"
     objectName = "Golf Flag"
     distanceUnits = "yard"
 
