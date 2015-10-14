@@ -43,6 +43,10 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
     helpView.hidden = true
     
   }
+    
+    override func viewWillAppear(animated: Bool) {
+        print("viewWillApprea, this is where we do whatever")
+    }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
@@ -82,6 +86,8 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     func loadInitialData() {
         print("Loads the preconfigured distantObjects into the array")
+        var ourDefaults = NSUserDefaults()
+        
         let item00 = DistantObject()
         item00.objectName = "START"
         item00.height = "0000"
