@@ -59,6 +59,12 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     @IBAction func test2Button(sender: UIBarButtonItem) {
         print("Tests deleting the selected row on the objectPicker")
+        self.deleteObject()
+ //       distantObjectsArray.removeObjectAtIndex(selectedRow)
+ //       objectPicker.reloadAllComponents()
+    }
+    
+    func deleteObject() {
         distantObjectsArray.removeObjectAtIndex(selectedRow)
         objectPicker.reloadAllComponents()
     }
@@ -139,9 +145,11 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
 
   @IBAction func editButton(sender: UIBarButtonItem) {
     let objectName = "selected object"
-    let ac = UIAlertController(title: title, message: "Delete \(objectName) ?", preferredStyle: .ActionSheet)
-    ac.addAction(UIAlertAction(title: "Continue", style: .Default, handler: nil))
-    presentViewController(ac, animated: true, completion: nil)
+//    let objectName = theDistantObject.objectName
+    let deleteAlert = UIAlertController(title: title, message: "Delete \(objectName) ?", preferredStyle: .ActionSheet)
+    deleteAlert.addAction(UIAlertAction(title: "Delete", style: .Destructive, handler: nil))
+    presentViewController(deleteAlert, animated: true, completion: nil)
+    self.deleteObject()
   }
     
   @IBAction func showHelpView(sender: AnyObject) {
