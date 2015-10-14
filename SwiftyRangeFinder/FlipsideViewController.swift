@@ -13,17 +13,18 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
   @IBOutlet weak var helpView: UIView!
   @IBOutlet weak var headerLabel: UILabel!
   @IBOutlet weak var setupUINavigationItem: UINavigationItem!
-
   @IBOutlet weak var scrollView: UIScrollView!
 
     @IBOutlet weak var height: UILabel!
     @IBOutlet weak var heightUnits: UILabel!
+    
 // pickerViews setup
     @IBOutlet weak var objectPicker: UIPickerView!
     
     @IBOutlet weak var unitsSelector: UISegmentedControl!
     @IBOutlet weak var helpSwitch: UISwitch!
     
+    var selectedRow = 0
     var distantObjectsArray: NSMutableArray = NSMutableArray()
     
 // MARK: - Lifecycle Methods
@@ -38,6 +39,7 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
 
     helpView.hidden = true
     
+// Builds the distantObjectsArray
     self.loadInitialData()
 
   }
@@ -54,8 +56,9 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
 // MARK: - Custom Methods
     
     @IBAction func test2Button(sender: UIBarButtonItem) {
-        print("Tests adding a new distantObject to the objectPicker")
-
+        print("Tests deleting the selected row on the objectPicker")
+        distantObjectsArray.removeObjectAtIndex(selectedRow)
+        objectPicker.reloadAllComponents()
     }
     
     @IBAction func testButton(sender: UIButton) {
@@ -108,6 +111,42 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
         item03.heightUnits = "miles"
         distantObjectsArray.addObject(item03)
         
+        let item04 = DistantObject()
+        item04.objectName = "CAR"
+        item04.height = "18"
+        item04.heightUnits = "feet"
+        distantObjectsArray.addObject(item04)
+        
+        let item05 = DistantObject()
+        item05.objectName = "POWERBALL"
+        item05.height = "1.3"
+        item05.heightUnits = "miles"
+        distantObjectsArray.addObject(item05)
+
+        let item06 = DistantObject()
+        item06.objectName = "Golf Flag"
+        item06.height = "6"
+        item06.heightUnits = "feet"
+        distantObjectsArray.addObject(item06)
+        
+        let item07 = DistantObject()
+        item07.objectName = "Utility Pole"
+        item07.height = "20"
+        item07.heightUnits = "yards"
+        distantObjectsArray.addObject(item07)
+        
+        let item08 = DistantObject()
+        item08.objectName = "Person"
+        item08.height = "2"
+        item08.heightUnits = "meters"
+        distantObjectsArray.addObject(item08)
+        
+        let item09 = DistantObject()
+        item09.objectName = "Lighthouse"
+        item09.height = "2"
+        item09.heightUnits = "furlong"
+        distantObjectsArray.addObject(item09)
+        
         let arrayList = "the array \(distantObjectsArray[1].objectName)"
         print(arrayList)
     }
@@ -153,7 +192,8 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
             theDistantObject.objectName = distantObjectsArray[row].objectName
             theDistantObject.height = distantObjectsArray[row].height
             theDistantObject.heightUnits = distantObjectsArray[row].heightUnits
-            
+        
+            selectedRow = row       // added for deletion function
             height.text = distantObjectsArray[row].height
             heightUnits.text = distantObjectsArray[row].heightUnits
     }
