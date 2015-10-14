@@ -13,20 +13,22 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
   @IBOutlet weak var helpView: UIView!
   @IBOutlet weak var headerLabel: UILabel!
   @IBOutlet weak var setupUINavigationItem: UINavigationItem!
-
   @IBOutlet weak var scrollView: UIScrollView!
 
+    @IBOutlet weak var height: UILabel!
+    @IBOutlet weak var heightUnits: UILabel!
+    
 // pickerViews setup
     @IBOutlet weak var objectPicker: UIPickerView!
-    let objectPickerItems = ["Light switch", "Car","Person", "Door","Golf flag", "Utility pole", "Sailboat", "Lighthouse"]
-    @IBOutlet weak var heightPicker: UIPickerView!
-    let heightPickerItems = ["0", "1","2", "3","4", "5", "6", "7", "8", "9", "10", "11","12", "13","14", "15", "16", "17", "18", "19", "20", "21","22", "23","24", "25", "26", "27", "28", "29", "30", "31","32", "33", "34", "35", "36", "37", "38", "39", "40", "45", "50", "55", "60", "65", "70", "80", "90", "99"]
-    let unitsPickerItems = ["inch", "foot","yard", "fathom","furlong", "mile", "league"]
     
     @IBOutlet weak var unitsSelector: UISegmentedControl!
     @IBOutlet weak var helpSwitch: UISwitch!
     
-    var distantObjectsArray: NSMutableArray = NSMutableArray()
+    var selectedRow = 0
+ //   var distantObjectsArray[]()
+//    let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//    let theDistantObject = delegate.distantObject
+
     
 // MARK: - Lifecycle Methods
     
@@ -37,12 +39,17 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
 // Additional setup after loading the view, typically from storyboard.
     objectPicker.dataSource = self;
     objectPicker.delegate = self;
-    heightPicker.dataSource = self;
-    heightPicker.delegate = self;
 
     helpView.hidden = true
     
+// Builds the distantObjectsArray
+    self.loadInitialData()
+
   }
+    
+    override func viewWillAppear(animated: Bool) {
+        print("viewWillApprea, this is where we do whatever")
+    }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
@@ -52,10 +59,10 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
 // MARK: - Custom Methods
     
     @IBAction func test2Button(sender: UIBarButtonItem) {
-        print("Tests adding a new distantObject to the objectPicker")
-//        let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//        let theDistantObject = delegate.distantObject
-}
+        print("Tests deleting the selected row on the objectPicker")
+        distantObjectsArray.removeObjectAtIndex(selectedRow)
+        objectPicker.reloadAllComponents()
+    }
     
     @IBAction func testButton(sender: UIButton) {
         print("Tests deleting the selected row on the objectPicker")
@@ -65,12 +72,12 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
 
     }
     
-    
     @IBAction func unitsSelected(sender: UISegmentedControl) {
         print("Changes the units that are displayed on the app")
         switch (self.unitsSelector.selectedSegmentIndex) {
         case 0:
             print("INCHES")
+
             break
         case 1:
             print("FEET")
@@ -85,8 +92,8 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
         print("Loads the preconfigured distantObjects into the array")
         
         let item00 = DistantObject()
-        item00.objectName = "START"
-        item00.height = "0000"
+        item00.objectName = "STICK"
+        item00.height = "20"
         item00.heightUnits = "inches"
         distantObjectsArray.addObject(item00)
     }
@@ -111,50 +118,31 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
     // good tutorial - http://makeapppie.com/2014/10/21/swift-swift-formatting-a-uipickerview/
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        if (pickerView == self.objectPicker) {
-            return 1}
-        if (pickerView == self.heightPicker) {
-            return 2}
-        return -1       // we'll use this as an error condition
+            return 1
     }
    
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if (pickerView == self.objectPicker) {
-            return objectPickerItems.count}
-        if (pickerView == self.heightPicker) {
-            if (component == 0) {
-                return heightPickerItems.count}
-            if (component == 1) {
-                return unitsPickerItems.count}
-        }
-        return -1       // we'll use this as an error condition
+            return distantObjectsArray.count
     }
     
 // MARK: - UIPickerViewDelegate methods
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if (pickerView == self.objectPicker) {
-            return objectPickerItems[row]}
-        if (pickerView == self.heightPicker) {
-            if (component == 0) {
-                return heightPickerItems[row]}
-            if (component == 1) {
-                return unitsPickerItems[row]}
-        }
-        return "error"
+              return distantObjectsArray[row].objectName
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if (pickerView == self.objectPicker) {
-            let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            let theDistantObject = delegate.distantObject
-            theDistantObject.objectName = objectPickerItems[row]
-            theDistantObject.height = heightPickerItems[row]
-            theDistantObject.heightUnits = unitsPickerItems[row]
-            print("The distant object is a \(theDistantObject.objectName!)")
-            print("The height is a \(theDistantObject.height!)")
-            print("The units are \(theDistantObject.heightUnits!)")
-        }
+//            let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//            let theDistantObject = delegate.distantObject
+        
+// Assigns array object to distantObject
+            theDistantObject.objectName = distantObjectsArray[row].objectName
+            theDistantObject.height = distantObjectsArray[row].height
+            theDistantObject.heightUnits = distantObjectsArray[row].heightUnits
+        
+            selectedRow = row       // added for deletion function
+            height.text = distantObjectsArray[row].height
+            heightUnits.text = distantObjectsArray[row].heightUnits
     }
     
 }
