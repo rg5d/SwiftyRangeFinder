@@ -19,6 +19,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
   @IBOutlet weak var cameraView: UIImageView!
 
   @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var units: UILabel!
 
   @IBOutlet weak var distanceObjectLabel: UILabel!
 
@@ -72,8 +73,9 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     helpView.hidden = true
 
     // Sets up labels & initial values
+    flagHeight = 4.0
     heightUnits = "foot"
-    height = "6"
+    height = "4"
     objectName = "Golf Flag"
     distanceUnits = "yard"
 
@@ -113,6 +115,8 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
     let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     let theDistantObject = delegate.distantObject
+
+    self.units.text = theDistantObject.distanceUnits
 
     if let height = theDistantObject.height {
       self.height = height
