@@ -153,7 +153,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view alpha="0.66700000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Ce-4f-OTw" userLabel="Help View">
-                                <rect key="frame" x="0.0" y="46" width="480" height="230"/>
+                                <rect key="frame" x="0.0" y="246" width="480" height="230"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VwP-zQ-0rU">
                                         <rect key="frame" x="448" y="16" width="22" height="22"/>
@@ -347,25 +347,6 @@
                                             <outlet property="delegate" destination="i9f-1J-k4c" id="vyc-uD-ToG"/>
                                         </connections>
                                     </pickerView>
-                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W2H-yX-UEp" userLabel="Height Picker">
-                                        <rect key="frame" x="158" y="133" width="151" height="160"/>
-                                        <animations/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColorFromUIColor">
-                                                <color key="value" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="12"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <outlet property="dataSource" destination="i9f-1J-k4c" id="0Hq-Wp-FP2"/>
-                                            <outlet property="delegate" destination="i9f-1J-k4c" id="9RX-Mw-Qhc"/>
-                                        </connections>
-                                    </pickerView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="by ChrisPLamb Labs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOV-8a-aU5">
                                         <rect key="frame" x="8" y="512" width="107" height="21"/>
                                         <animations/>
@@ -428,14 +409,14 @@
                                         </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="xxx" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TT8-j8-tXa">
-                                        <rect key="frame" x="165" y="97" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <rect key="frame" x="161" y="165" width="49" height="31"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="units" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cs-Rd-1Os">
-                                        <rect key="frame" x="227" y="97" width="82" height="21"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <rect key="frame" x="230" y="165" width="82" height="31"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -512,7 +493,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Setup" id="O9a-zE-eeG">
-                        <barButtonItem key="leftBarButtonItem" title="Test" id="Nru-sU-Me8">
+                        <barButtonItem key="leftBarButtonItem" title="Test2" id="Nru-sU-Me8">
                             <connections>
                                 <action selector="test2Button:" destination="E5i-Oe-umS" id="npS-JS-FNd"/>
                             </connections>
@@ -527,7 +508,8 @@
                     <size key="freeformSize" width="320" height="700"/>
                     <connections>
                         <outlet property="headerLabel" destination="juc-hx-FVj" id="2iO-4X-79a"/>
-                        <outlet property="heightPicker" destination="W2H-yX-UEp" id="WO3-MH-352"/>
+                        <outlet property="height" destination="TT8-j8-tXa" id="nBh-QF-LVJ"/>
+                        <outlet property="heightUnits" destination="8cs-Rd-1Os" id="rmU-nn-94i"/>
                         <outlet property="helpSwitch" destination="XWc-wT-82q" id="Pl4-sh-ra1"/>
                         <outlet property="helpView" destination="PBH-2M-e9V" id="VzA-Jz-mnF"/>
                         <outlet property="objectPicker" destination="BNL-Av-X99" id="UhB-LV-ltK"/>
