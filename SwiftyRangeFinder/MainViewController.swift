@@ -19,6 +19,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
   @IBOutlet weak var cameraView: UIImageView!
 
   @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var units: UILabel!
 
   @IBOutlet weak var distanceObjectLabel: UILabel!
 
@@ -113,6 +114,8 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
     let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     let theDistantObject = delegate.distantObject
+
+    self.units.text = theDistantObject.distanceUnits
 
     if let height = theDistantObject.height {
       self.height = height

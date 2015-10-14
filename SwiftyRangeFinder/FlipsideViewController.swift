@@ -25,9 +25,8 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var helpSwitch: UISwitch!
     
     var selectedRow = 0
- //   var distantObjectsArray[]()
-//    let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//    let theDistantObject = delegate.distantObject
+    var distantObjectsArray: NSMutableArray = NSMutableArray()
+    var theDistantObject = DistantObject()
 
     
 // MARK: - Lifecycle Methods
@@ -48,7 +47,7 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
   }
     
     override func viewWillAppear(animated: Bool) {
-        print("viewWillApprea, this is where we do whatever")
+        print("viewWillAppear, this is where we do whatever")
     }
 
   override func didReceiveMemoryWarning() {
@@ -77,11 +76,25 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
         switch (self.unitsSelector.selectedSegmentIndex) {
         case 0:
             print("INCHES")
-
+            theDistantObject.distanceUnits = "inches"
             break
         case 1:
             print("FEET")
+            theDistantObject.distanceUnits = "feet"
             break
+        case 2:
+            print("YARDS")
+            theDistantObject.distanceUnits = "yards"
+            break
+        case 3:
+            print("FURLONG")
+            theDistantObject.distanceUnits = "furlong"
+            break
+        case 4:
+            print("MILES")
+            theDistantObject.distanceUnits = "miles"
+            break
+
         default:
             print("WTF")
         }
@@ -96,6 +109,31 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
         item00.height = "20"
         item00.heightUnits = "inches"
         distantObjectsArray.addObject(item00)
+        
+        let item01 = DistantObject()
+        item01.objectName = "STONE"
+        item01.height = "200"
+        item01.heightUnits = "inches"
+        distantObjectsArray.addObject(item01)
+        
+        let item02 = DistantObject()
+        item02.objectName = "GOLF FLAG"
+        item02.height = "4"
+        item02.heightUnits = "feet"
+        distantObjectsArray.addObject(item02)
+        
+        let item03 = DistantObject()
+        item03.objectName = "PERSON"
+        item03.height = "6"
+        item03.heightUnits = "feet"
+        distantObjectsArray.addObject(item03)
+        
+        let item04 = DistantObject()
+        item04.objectName = "LIGHTHOUSE"
+        item04.height = "40"
+        item04.heightUnits = "feet"
+        distantObjectsArray.addObject(item04)
+
     }
 
 
@@ -132,8 +170,8 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//            let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//            let theDistantObject = delegate.distantObject
+            let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let theDistantObject = delegate.distantObject
         
 // Assigns array object to distantObject
             theDistantObject.objectName = distantObjectsArray[row].objectName
