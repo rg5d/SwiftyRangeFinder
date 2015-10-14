@@ -25,7 +25,10 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var helpSwitch: UISwitch!
     
     var selectedRow = 0
-    var distantObjectsArray: NSMutableArray = NSMutableArray()
+ //   var distantObjectsArray[]()
+//    let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//    let theDistantObject = delegate.distantObject
+
     
 // MARK: - Lifecycle Methods
     
@@ -74,6 +77,7 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
         switch (self.unitsSelector.selectedSegmentIndex) {
         case 0:
             print("INCHES")
+
             break
         case 1:
             print("FEET")
@@ -185,9 +189,9 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            let theDistantObject = delegate.distantObject
-            
+//            let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//            let theDistantObject = delegate.distantObject
+        
 // Assigns array object to distantObject
             theDistantObject.objectName = distantObjectsArray[row].objectName
             theDistantObject.height = distantObjectsArray[row].height
