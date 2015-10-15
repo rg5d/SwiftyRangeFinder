@@ -55,18 +55,13 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
     // Dispose of any resources that can be recreated.
   }
     
-// MARK: - Custom Methods
+// MARK: - Screen & UI Methods
     
     @IBAction func test2Button(sender: UIBarButtonItem) {
         print("Tests deleting the selected row on the objectPicker")
         self.deleteObject()
  //       distantObjectsArray.removeObjectAtIndex(selectedRow)
  //       objectPicker.reloadAllComponents()
-    }
-    
-    func deleteObject() {
-        distantObjectsArray.removeObjectAtIndex(selectedRow)
-        objectPicker.reloadAllComponents()
     }
     
     @IBAction func testButton(sender: UIButton) {
@@ -77,27 +72,55 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
 
     }
     
+    @IBAction func editButton(sender: UIBarButtonItem) {
+// Allows for deletion of selected item in pickerView
+        let objectName = "selected object"
+  //      let objectName = theDistantObject.objectName
+
+// Initialize an Alert View
+        let deleteAlertController = UIAlertController(title: title, message: "Delete \(objectName) ?", preferredStyle: .ActionSheet)
+
+// Configure the alaert view BUTTONS & ACTIONS
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action:UIAlertAction!) in
+            print("Pressed Cancel button");
+        }
+        deleteAlertController.addAction(cancelAction)
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .Default) { (action:UIAlertAction!) in
+            print("Pressed Delete button");
+// Delete the selected object
+            self.deleteObject();
+        }
+        deleteAlertController.addAction(deleteAction)
+        
+// Show the Alert view
+        presentViewController(deleteAlertController, animated: true, completion: nil)
+    }
+    
+    @IBAction func showHelpView(sender: AnyObject) {
+        helpView.hidden = false
+    }
+    
+    @IBAction func hideHelpView(sender: AnyObject) {
+        helpView.hidden = true
+    }
+    
     @IBAction func unitsSelected(sender: UISegmentedControl) {
-        print("Changes the units that are displayed on the app")
+//       print("Changes the units that are displayed on the app")
         switch (self.unitsSelector.selectedSegmentIndex) {
         case 0:
-            print("INCHES")
             theDistantObject.distanceUnits = "inches"
             break
         case 1:
-            print("FEET")
             theDistantObject.distanceUnits = "feet"
             break
         case 2:
-            print("YARDS")
             theDistantObject.distanceUnits = "yards"
             break
         case 3:
-            print("FURLONG")
             theDistantObject.distanceUnits = "furlong"
             break
         case 4:
-            print("MILES")
             theDistantObject.distanceUnits = "miles"
             break
 
@@ -105,7 +128,9 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
             print("WTF")
         }
     }
-    
+ 
+// MARK: - Custom Methods
+
     func loadInitialData() {
 
         print("Loads the preconfigured distantObjects into the array")
@@ -141,24 +166,12 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
         distantObjectsArray.addObject(item04)
 
     }
-
-
-  @IBAction func editButton(sender: UIBarButtonItem) {
-    let objectName = "selected object"
-//    let objectName = theDistantObject.objectName
-    let deleteAlert = UIAlertController(title: title, message: "Delete \(objectName) ?", preferredStyle: .ActionSheet)
-    deleteAlert.addAction(UIAlertAction(title: "Delete", style: .Destructive, handler: nil))
-    presentViewController(deleteAlert, animated: true, completion: nil)
-    self.deleteObject()
-  }
     
-  @IBAction func showHelpView(sender: AnyObject) {
-    helpView.hidden = false
-  }
+    func deleteObject() {
+        distantObjectsArray.removeObjectAtIndex(selectedRow)
+        objectPicker.reloadAllComponents()
+    }
 
-  @IBAction func hideHelpView(sender: AnyObject) {
-    helpView.hidden = true
-  }
     
 // MARK: - UIPickerViewDataSources methods
     // good tutorial - http://makeapppie.com/2014/10/21/swift-swift-formatting-a-uipickerview/
