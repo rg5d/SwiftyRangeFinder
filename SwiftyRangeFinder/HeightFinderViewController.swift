@@ -24,6 +24,11 @@ class HeightFinderViewController: UIViewController, UIGestureRecognizerDelegate,
     @IBOutlet weak var angleTwoLabel: UITextField!
     
     var motionManager: CMMotionManager!
+    
+ //   let degreesTilt: Int?
+    
+    let DEGREES_2_RADIAN: Double = 57.3
+    let YOUR_HEIGHT: Double = 6.0
   
 // MARK: - Lifecycle Methods
     
@@ -37,7 +42,7 @@ class HeightFinderViewController: UIViewController, UIGestureRecognizerDelegate,
 // Setup CoreMotion for acceleration data
     motionManager = CMMotionManager()
     if motionManager.accelerometerAvailable {
-        motionManager.accelerometerUpdateInterval = 2.0
+        motionManager.accelerometerUpdateInterval = 5.0
         print("Accelerometer is ready to go")
         let queue = NSOperationQueue()
         motionManager.startAccelerometerUpdatesToQueue(queue, withHandler:
@@ -53,7 +58,9 @@ class HeightFinderViewController: UIViewController, UIGestureRecognizerDelegate,
     } else {
         print("Accelerometer not available")
     }
-    
+// temp code to decipher accel info
+    let acceleration = CMAcceleration()
+    self.outputAccelerationData(acceleration)
   }
 
   override func didReceiveMemoryWarning() {
@@ -105,6 +112,11 @@ class HeightFinderViewController: UIViewController, UIGestureRecognizerDelegate,
         presentViewController(alertController, animated: true, completion: nil)
         }
 
-    // MARK: - Custom Methods
+// MARK: - Custom Methods
+    
+    func outputAccelerationData(acceleration: CMAcceleration) {
+        print("We're accelerating baby!")
+        degreeLabel.text = "?!?!"
+    }
 
 }
