@@ -2,9 +2,6 @@
 //  HeightFinderViewController.swift
 //  SwiftyRangeFinder
 //
-//  Created by rg on 10/1/15.
-//  Copyright © 2015 RG5D. All rights reserved.
-//
 //  Created by Chris Lamb on 11/7/14.
 //  Copyright (c) 2014 CPL Consulting. All rights reserved.
 //
@@ -26,7 +23,6 @@ class HeightFinderViewController: UIViewController, UIGestureRecognizerDelegate,
   @IBOutlet weak var baseLength: UITextField!
   @IBOutlet weak var angleOneLabel: UITextField!
   @IBOutlet weak var angleTwoLabel: UITextField!
-  @IBOutlet weak var angleOneButton: UIButton!
   
 // MARK: - Lifecycle Methods
     
@@ -58,7 +54,14 @@ class HeightFinderViewController: UIViewController, UIGestureRecognizerDelegate,
     helpView.hidden = true
   }
 
+    @IBAction func setAngleTwoButton(sender: UIButton) {
+        print("logs the iPhone Y tilt and enters it on the screen")
+    }
     
+    @IBAction func setAngleOneButton(sender: UIButton) {
+        print("#2 - logs the iPhone Y tilt and enters it on the screen")
+    }
+
     
     @IBAction func AddButton(sender: UIBarButtonItem) {
         print("Allows user to add measured object to the objects list")
