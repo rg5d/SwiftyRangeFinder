@@ -12,27 +12,48 @@ and recording the device's Y magnetometer tilt
 //
 
 import UIKit
+import CoreMotion
 
 class HeightFinderViewController: UIViewController, UIGestureRecognizerDelegate, UITextFieldDelegate {
 
-  @IBOutlet weak var helpView: UIView!
-  @IBOutlet weak var height: UILabel!
-
-  @IBOutlet weak var degreeLabel: UILabel!
-
-  @IBOutlet weak var baseLength: UITextField!
-  @IBOutlet weak var angleOneLabel: UITextField!
-  @IBOutlet weak var angleTwoLabel: UITextField!
+    @IBOutlet weak var helpView: UIView!
+    @IBOutlet weak var height: UILabel!
+    @IBOutlet weak var degreeLabel: UILabel!
+    @IBOutlet weak var baseLength: UITextField!
+    @IBOutlet weak var angleOneLabel: UITextField!
+    @IBOutlet weak var angleTwoLabel: UITextField!
+    
+    var motionManager: CMMotionManager!
   
 // MARK: - Lifecycle Methods
     
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
-
+    
+// VC setup Shtuff
     preferredInterfaceOrientationForPresentation().isLandscape
-
     helpView.hidden = true
+    
+// Setup CoreMotion for acceleration data
+    motionManager = CMMotionManager()
+    if motionManager.accelerometerAvailable {
+        motionManager.accelerometerUpdateInterval = 2.0
+        print("Accelerometer is ready to go")
+        let queue = NSOperationQueue()
+        motionManager.startAccelerometerUpdatesToQueue(queue, withHandler:
+            {data, error in
+                guard let data = data else {
+                    return
+                }
+                print("X = \(data.acceleration.x)")
+                print("Y = \(data.acceleration.y)")
+                print("Z = \(data.acceleration.z)")
+            }
+        )
+    } else {
+        print("Accelerometer not available")
+    }
+    
   }
 
   override func didReceiveMemoryWarning() {
