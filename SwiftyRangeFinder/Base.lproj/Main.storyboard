@@ -290,7 +290,11 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="HeightFinder" id="ts8-6A-Jlj" userLabel="HeightFinder">
                         <barButtonItem key="leftBarButtonItem" title="Calculate" id="chx-og-4sD"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mnz-Fa-vL8"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mnz-Fa-vL8">
+                            <connections>
+                                <action selector="AddButton:" destination="8rJ-Kc-sve" id="2Je-im-9yS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
