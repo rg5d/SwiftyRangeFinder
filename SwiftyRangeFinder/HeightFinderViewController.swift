@@ -68,6 +68,10 @@ class HeightFinderViewController: UIViewController, UIGestureRecognizerDelegate,
     // Dispose of any resources that can be recreated.
   }
 
+  override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation{
+    return UIInterfaceOrientation.LandscapeLeft
+  }
+
   override func shouldAutorotate() -> Bool {
     return false;
   }
