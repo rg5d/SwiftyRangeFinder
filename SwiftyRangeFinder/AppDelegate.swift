@@ -14,8 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 
 // Instantiates a DistantObject variable at the start of the app??? Also the database?
-  var distantObject =  DistantObject()
-    var theDistantObjects = ["one", "two", "three",]
+  var distantObject: DistantObject?
+
+  var theDistantObjects = ["one", "two", "three",]
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.

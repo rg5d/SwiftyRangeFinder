@@ -26,7 +26,7 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     var selectedRow = 0
     var distantObjectsArray: NSMutableArray = NSMutableArray()
-    var theDistantObject = DistantObject()
+    var theDistantObject: DistantObject
 
     
 // MARK: - Lifecycle Methods
@@ -40,6 +40,16 @@ class FlipsideViewController: UIViewController, UIPickerViewDataSource, UIPicker
     objectPicker.delegate = self;
 
     helpView.hidden = true
+
+//    // Load data from AppDelegate singleton distantObject
+//    let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//    let theDistantObject = delegate.distantObject
+//
+//    if let height = theDistantObject.height {
+//      self.height = height
+//      print(height)
+//    }
+
     
 // Builds the distantObjectsArray
     self.loadInitialData()

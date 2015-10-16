@@ -103,12 +103,9 @@
 		B4BCEA561BBE57CC008A529C /* SwiftyRangeFinder */ = {
 			isa = PBXGroup;
 			children = (
-				B4BCEA571BBE57CC008A529C /* AppDelegate.swift */,
-				B4BCEA5D1BBE57CC008A529C /* Main.storyboard */,
-				B4BCEA991BBE5AFB008A529C /* MainViewController.swift */,
-				B47F9F5E1BBE5D9C00BD3275 /* FlipsideViewController.swift */,
-				B47F9F5C1BBE5D1D00BD3275 /* HeightFinderViewController.swift */,
-				B43039EA1BC8504C004250A8 /* DistantObject.swift */,
+				B4CE57121BCF3B8B00A0CBE6 /* Model */,
+				B4CE57131BCF3BB200A0CBE6 /* View */,
+				B4CE57141BCF3BD000A0CBE6 /* Controller */,
 				B4BCEA601BBE57CD008A529C /* Assets.xcassets */,
 				B4BCEA621BBE57CD008A529C /* LaunchScreen.storyboard */,
 				B4BCEA651BBE57CD008A529C /* Info.plist */,
@@ -150,6 +147,33 @@
 				B4BCEA8A1BBE58A9008A529C /* splashMotto-640x1136.png */,
 			);
 			name = Iconography;
+			sourceTree = "<group>";
+		};
+		B4CE57121BCF3B8B00A0CBE6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B4BCEA571BBE57CC008A529C /* AppDelegate.swift */,
+				B43039EA1BC8504C004250A8 /* DistantObject.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B4CE57131BCF3BB200A0CBE6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B4BCEA5D1BBE57CC008A529C /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B4CE57141BCF3BD000A0CBE6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B4BCEA991BBE5AFB008A529C /* MainViewController.swift */,
+				B47F9F5E1BBE5D9C00BD3275 /* FlipsideViewController.swift */,
+				B47F9F5C1BBE5D1D00BD3275 /* HeightFinderViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

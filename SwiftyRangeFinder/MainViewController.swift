@@ -51,6 +51,8 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
 
+    print(NSUserDefaults.standardUserDefaults())
+
 // Checks to see if the camera is available
     if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)){
       print("camera is available - We must be on the iPhone! \n")
@@ -113,8 +115,8 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UIIm
   override func viewWillAppear(animated: Bool) {
     print("MainController viewWillAppear")
 
-    let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    let theDistantObject = delegate.distantObject
+    let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let theDistantObject = appDelegate.distantObject
 
     self.units.text = theDistantObject.distanceUnits
 
