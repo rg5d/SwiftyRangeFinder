@@ -245,23 +245,33 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EmX-fl-nky" userLabel="Angle One Button">
-                                <rect key="frame" x="109" y="214" width="72" height="44"/>
-                                <animations/>
-                                <state key="normal" title="Button"/>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hYm-Lf-vFo" userLabel="Base Length">
                                 <rect key="frame" x="245" y="140" width="45" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EmX-fl-nky" userLabel="Angle One Button">
+                                <rect key="frame" x="109" y="210.5" width="128" height="47.5"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="setAngleOneButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="8Os-mr-2IW"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7SU-oH-LxZ" userLabel="Angle One Label">
                                 <rect key="frame" x="126" y="222" width="97" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SS9-as-I2A" userLabel="Angle Two Button">
+                                <rect key="frame" x="242" y="215.5" width="128" height="47.5"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="setAngleTwoButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="qDV-Ba-yVn"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BWB-uo-ybE" userLabel="Angle Two Label">
                                 <rect key="frame" x="258" y="223" width="97" height="30"/>
                                 <animations/>
@@ -291,13 +301,16 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="HeightFinder" id="ts8-6A-Jlj" userLabel="HeightFinder">
                         <barButtonItem key="leftBarButtonItem" title="Calculate" id="chx-og-4sD"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mnz-Fa-vL8"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mnz-Fa-vL8">
+                            <connections>
+                                <action selector="AddButton:" destination="8rJ-Kc-sve" id="2Je-im-9yS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="angleOneButton" destination="EmX-fl-nky" id="XcJ-wV-fQI"/>
                         <outlet property="angleOneLabel" destination="7SU-oH-LxZ" id="gbp-Fo-wb5"/>
                         <outlet property="angleTwoLabel" destination="BWB-uo-ybE" id="FNw-l2-Vut"/>
                         <outlet property="baseLength" destination="hYm-Lf-vFo" id="amG-KJ-dSK"/>
