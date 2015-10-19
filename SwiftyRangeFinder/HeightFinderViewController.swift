@@ -35,7 +35,7 @@ class HeightFinderViewController: UIViewController, UIGestureRecognizerDelegate,
   override func viewDidLoad() {
     super.viewDidLoad()
     
-// VC setup Shtuff
+// VC setup Stuff
     preferredInterfaceOrientationForPresentation().isLandscape
     helpView.hidden = true
     
@@ -68,10 +68,23 @@ class HeightFinderViewController: UIViewController, UIGestureRecognizerDelegate,
     // Dispose of any resources that can be recreated.
   }
 
-  override func shouldAutorotate() -> Bool {
-    return false;
+// Attemping to force Landscape will not work because need to rotate parent UINavigation controller
+//  http://stackoverflow.com/questions/14658268/why-cant-i-force-landscape-orientation-when-use-uinavigationcontroller
+
+  override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+    print("supportedInterfaceOrientations")
+    return UIInterfaceOrientationMask.LandscapeLeft
   }
-    
+  override func shouldAutorotate() -> Bool {
+    print("shouldAutoRotate")
+    return true
+  }
+  override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation{
+    print("preferredInterfaceOrientationForPresentation")
+    return UIInterfaceOrientation.LandscapeLeft
+  }
+
+
 // MARK: - Screen & UI Methods
 
   @IBAction func showHelpview(sender: AnyObject) {
