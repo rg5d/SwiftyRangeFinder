@@ -592,7 +592,7 @@
         <!--Height-->
         <scene sceneID="CMT-3L-OUc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IYz-Eu-BMi" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IYz-Eu-BMi" customClass="HeightNavViewController" customModule="SwiftyRangeFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Height" image="IconHeight24.png" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>

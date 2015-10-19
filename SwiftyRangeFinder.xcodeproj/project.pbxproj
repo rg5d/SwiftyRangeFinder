@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83C1BD891BD5654E00AFB865 /* HeightNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C1BD881BD5654E00AFB865 /* HeightNavViewController.swift */; };
 		B43039EB1BC8504C004250A8 /* DistantObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43039EA1BC8504C004250A8 /* DistantObject.swift */; };
 		B47F9F5D1BBE5D1D00BD3275 /* HeightFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F9F5C1BBE5D1D00BD3275 /* HeightFinderViewController.swift */; };
 		B47F9F5F1BBE5D9C00BD3275 /* FlipsideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F9F5E1BBE5D9C00BD3275 /* FlipsideViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		83C1BD881BD5654E00AFB865 /* HeightNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeightNavViewController.swift; sourceTree = "<group>"; };
 		B43039EA1BC8504C004250A8 /* DistantObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistantObject.swift; sourceTree = "<group>"; };
 		B47F9F5C1BBE5D1D00BD3275 /* HeightFinderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeightFinderViewController.swift; sourceTree = "<group>"; };
 		B47F9F5E1BBE5D9C00BD3275 /* FlipsideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlipsideViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				B4BCEA601BBE57CD008A529C /* Assets.xcassets */,
 				B4BCEA621BBE57CD008A529C /* LaunchScreen.storyboard */,
 				B4BCEA651BBE57CD008A529C /* Info.plist */,
+				83C1BD881BD5654E00AFB865 /* HeightNavViewController.swift */,
 			);
 			path = SwiftyRangeFinder;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				B4BCEA9A1BBE5AFB008A529C /* MainViewController.swift in Sources */,
 				B47F9F5F1BBE5D9C00BD3275 /* FlipsideViewController.swift in Sources */,
 				B47F9F5D1BBE5D1D00BD3275 /* HeightFinderViewController.swift in Sources */,
+				83C1BD891BD5654E00AFB865 /* HeightNavViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
