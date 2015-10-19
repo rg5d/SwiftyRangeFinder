@@ -19,6 +19,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
+
+
+//    self.memberData = [[MemberListData alloc] init];
+//
+//    // initialize defaults for app parameters using NSUserDefaults
+//    NSString *dateKey    = @"dateKey";
+//    NSDate *lastRead    = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:dateKey];
+//    if (lastRead == nil)     // App first run: set up user defaults.
+//    {
+//      NSDictionary *appDefaults  = [NSDictionary dictionaryWithObjectsAndKeys:[NSDate date], dateKey, nil];
+//
+//      // do any other initialization you want to do here - e.g. the starting default values.
+//      // [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"should_play_sounds"];
+//      [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"selected_spreadsheet"];
+//      [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"selected_map_type"];
+//      [[NSUserDefaults standardUserDefaults] setObject:@"ALL" forKey:@"selected_driver"];
+//
+//      // sync the defaults to disk
+//      [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+//      [[NSUserDefaults standardUserDefaults] synchronize];
+//    }
+//    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:
+//
+
     return true
   }
 
